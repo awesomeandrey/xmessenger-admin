@@ -1,9 +1,2 @@
-# SFDX App
-
-## Dev, Build and Test
-
-## Resources
-
-## Description of Files and Directories
-
-## Issues
+# xmessenger-admin
+Administration utility hosted on Force.com platform
