@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>is_active__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>is_active</description>
+    <externalDeveloperName>is_active</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>is_active</label>
+    <type>Checkbox</type>
+</CustomField>
