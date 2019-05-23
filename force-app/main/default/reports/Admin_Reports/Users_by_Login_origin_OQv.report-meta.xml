@@ -5,62 +5,59 @@
         <backgroundColor2>#FFFFFF</backgroundColor2>
         <backgroundFadeDir>Diagonal</backgroundFadeDir>
         <chartSummaries>
-            <aggregate>Sum</aggregate>
             <axisBinding>y</axisBinding>
-            <column>public_xm_user__x$is_active__c</column>
+            <column>RowCount</column>
         </chartSummaries>
         <chartType>Donut</chartType>
         <enableHoverLabels>false</enableHoverLabels>
-        <expandOthers>true</expandOthers>
-        <groupingColumn>public_xm_user__x$is_logged_externally__c</groupingColumn>
+        <expandOthers>false</expandOthers>
+        <groupingColumn>AppUser__x.Logged_Externally__c</groupingColumn>
         <legendPosition>Bottom</legendPosition>
         <location>CHART_BOTTOM</location>
-        <showAxisLabels>true</showAxisLabels>
+        <showAxisLabels>false</showAxisLabels>
         <showPercentage>true</showPercentage>
         <showTotal>true</showTotal>
-        <showValues>false</showValues>
+        <showValues>true</showValues>
         <size>Medium</size>
         <summaryAxisRange>Auto</summaryAxisRange>
         <textColor>#000000</textColor>
         <textSize>12</textSize>
-        <title>App Users by login origin</title>
+        <title>Users by Login origin</title>
         <titleColor>#000000</titleColor>
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>public_xm_user__x$ExternalId</field>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AppUser__x.User_Id__c</field>
     </columns>
     <columns>
-        <field>public_xm_user__x$name__c</field>
-    </columns>
-    <columns>
-        <field>public_xm_user__x$username__c</field>
+        <field>AppUser__x.Fullname__c</field>
     </columns>
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
-        <field>public_xm_user__x$is_active__c</field>
+        <field>AppUser__x.Active__c</field>
     </columns>
     <columns>
-        <field>public_xm_user__x$last_login__c</field>
+        <field>AppUser__x.Last_Login__c</field>
     </columns>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>public_xm_user__x$is_logged_externally__c</field>
+        <field>AppUser__x.Logged_Externally__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>App Users</name>
+    <name>Users by Login origin</name>
     <params>
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>XM_AppUsers__c</reportType>
+    <reportType>CustomEntity$AppUser__x</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
-        <dateColumn>public_xm_user__x$last_login__c</dateColumn>
-        <interval>INTERVAL_CURRENT</interval>
+        <dateColumn>AppUser__x.Last_Login__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>

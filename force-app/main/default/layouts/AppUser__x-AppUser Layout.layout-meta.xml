@@ -8,33 +8,33 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>name__c</field>
+                <field>Fullname__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>username__c</field>
+                <field>Username__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>is_active__c</field>
+                <field>Role_Code__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>last_login__c</field>
+                <field>Active__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>user_id__c</field>
+                <field>User_Id__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>role_code__c</field>
+                <field>Last_Login__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>is_logged_externally__c</field>
+                <field>Logged_Externally__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -50,12 +50,12 @@
         <style>CustomLinks</style>
     </layoutSections>
     <showEmailCheckbox>false</showEmailCheckbox>
-    <showHighlightsPanel>false</showHighlightsPanel>
+    <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h0E000001HJUH</masterLabel>
+        <masterLabel>00h2p00000lfs6g</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

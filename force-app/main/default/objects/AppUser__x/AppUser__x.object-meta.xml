@@ -34,14 +34,14 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>public$xm_relation</description>
     <enableFeeds>false</enableFeeds>
     <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <externalDataSource>Heroku_Postgres</externalDataSource>
-    <externalName>public$xm_relation</externalName>
-    <label>public$xm_relation</label>
-    <pluralLabel>public$xm_relation</pluralLabel>
+    <externalName>public$xm_user</externalName>
+    <label>AppUser</label>
+    <pluralLabel>AppUsers</pluralLabel>
     <searchLayouts/>
+    <startsWith>Vowel</startsWith>
 </CustomObject>
