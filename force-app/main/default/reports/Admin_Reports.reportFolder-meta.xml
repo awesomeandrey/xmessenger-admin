@@ -2,8 +2,8 @@
 <ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
     <folderShares>
         <accessLevel>Manage</accessLevel>
-        <sharedTo>test-upcmzslstp70@example.com</sharedTo>
-        <sharedToType>User</sharedToType>
+        <sharedTo>Administration</sharedTo>
+        <sharedToType>Group</sharedToType>
     </folderShares>
     <name>Admin Reports</name>
 </ReportFolder>
