@@ -8,4 +8,5 @@
     <protocol>Password</protocol>
     <type>OData4</type>
     <username>02eccf2da68f47048eb2add6aed7d934</username>
+    <password>skip_deployment_error</password>
 </ExternalDataSource>
