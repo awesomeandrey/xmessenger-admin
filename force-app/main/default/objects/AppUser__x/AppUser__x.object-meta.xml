@@ -40,8 +40,8 @@
     <enableSearch>true</enableSearch>
     <externalDataSource>Heroku_Postgres</externalDataSource>
     <externalName>public$xm_user</externalName>
-    <label>AppUser</label>
-    <pluralLabel>AppUsers</pluralLabel>
+    <label>Application User</label>
+    <pluralLabel>Application Users</pluralLabel>
     <searchLayouts/>
     <startsWith>Vowel</startsWith>
 </CustomObject>
