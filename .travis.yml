@@ -22,6 +22,8 @@ before_install:
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername -a HubOrg
 
 script:
+- touch .forceignore
+- printf "**dataSource-meta.xml" > .forceignore
 - sfdx force:org:display -u HubOrg
 - sfdx force:source:convert -d mdapioutput/
 - sfdx force:mdapi:deploy -d mdapioutput/ -u HubOrg -w 100

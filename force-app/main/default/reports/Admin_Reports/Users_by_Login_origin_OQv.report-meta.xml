@@ -50,8 +50,8 @@
     <reportType>CustomEntity$AppUser__x</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
-    <showGrandTotal>true</showGrandTotal>
-    <showSubTotals>true</showSubTotals>
+    <showGrandTotal>false</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
     <timeFrameFilter>
         <dateColumn>AppUser__x.Last_Login__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>
