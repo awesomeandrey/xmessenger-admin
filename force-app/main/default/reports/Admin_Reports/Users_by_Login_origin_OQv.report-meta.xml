@@ -27,10 +27,6 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <aggregateTypes>Sum</aggregateTypes>
-        <field>AppUser__x.User_Id__c</field>
-    </columns>
-    <columns>
         <field>AppUser__x.Fullname__c</field>
     </columns>
     <columns>
