@@ -10,6 +10,8 @@
     </actionOverrides>
     <brand>
         <headerColor>#BF0201</headerColor>
+        <logo>logo</logo>
+        <logoVersion>1</logoVersion>
         <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
     </brand>
     <description>Administration utility in xMessenger application ecosystem.</description>
@@ -27,7 +29,6 @@
         <profile>Admin</profile>
     </profileActionOverrides>
     <tabs>standard-home</tabs>
-    <tabs>standard-Task</tabs>
     <tabs>standard-report</tabs>
     <tabs>AppUser__x</tabs>
     <tabs>Relation__x</tabs>
@@ -39,9 +40,6 @@
         </mappings>
         <mappings>
             <tab>Relation__x</tab>
-        </mappings>
-        <mappings>
-            <tab>standard-Task</tab>
         </mappings>
         <mappings>
             <tab>standard-home</tab>

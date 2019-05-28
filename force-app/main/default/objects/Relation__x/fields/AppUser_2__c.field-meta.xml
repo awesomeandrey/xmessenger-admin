@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>User_Two_ID__c</fullName>
+    <fullName>AppUser_2__c</fullName>
     <externalDeveloperName>user_two_id</externalDeveloperName>
     <externalId>false</externalId>
     <isFilteringDisabled>false</isFilteringDisabled>
     <isNameField>false</isNameField>
     <isSortingDisabled>false</isSortingDisabled>
-    <label>User Two ID</label>
-    <precision>6</precision>
-    <required>false</required>
-    <scale>0</scale>
-    <type>Number</type>
-    <unique>false</unique>
+    <label>Application User #2</label>
+    <length>10</length>
+    <referenceTo>AppUser__x</referenceTo>
+    <relationshipLabel>Relations for Application User #2</relationshipLabel>
+    <relationshipName>Relations_2</relationshipName>
+    <type>ExternalLookup</type>
 </CustomField>

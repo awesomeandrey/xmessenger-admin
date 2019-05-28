@@ -12,11 +12,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>User_One_ID__c</field>
+                <field>AppUser_1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>User_Two_ID__c</field>
+                <field>AppUser_2__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AppUser__x.User_Id__c</field>
+    </columns>
+    <columns>
+        <field>AppUser__x.Fullname__c</field>
+    </columns>
+    <columns>
+        <field>AppUser__x.Username__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AppUser__x.Active__c</field>
+    </columns>
+    <columns>
+        <field>AppUser__x.Last_Login__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AppUser__x.Logged_Externally__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Logged in this week</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$AppUser__x</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>false</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>AppUser__x.Last_Login__c</dateColumn>
+        <interval>INTERVAL_THISWEEK</interval>
+    </timeFrameFilter>
+</Report>

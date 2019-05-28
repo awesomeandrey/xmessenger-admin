@@ -35,15 +35,7 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentInstanceProperties>
-                <name>entityNames</name>
-                <value>[&quot;Account&quot;]</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>maxRecords</name>
-                <value>3</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:recentItems</componentName>
+            <componentName>home:recentRecordContainer</componentName>
         </componentInstances>
         <name>sidebar</name>
         <type>Region</type>
