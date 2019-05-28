@@ -8,4 +8,14 @@ public class RelatedLinksController {
                 FROM Link__mdt
         ];
     }
+
+    @AuraEnabled
+    public static String getApiServerUrl() {
+        for (Link__mdt linkItem : fetchLinks()) {
+            if (linkItem.DeveloperName.equals('API_server')) {
+                return linkItem.URL__c;
+            }
+        }
+        return null;
+    }
 }

@@ -1,15 +1,19 @@
-<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
-    <aura:attribute name="appUser" type="AppUser__x" default="{}"
-                    description="Target record to load datta into."/>
-    <force:recordData recordId="{!v.recordId}" targetFields="{!v.appUser}"
+<aura:component extends="c:CommonAction" access="global" controller="RelatedLinksController"
+                implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="_appUser" type="AppUser__x" default="{}"
+                    description="Target record to load data into."/>
+    <aura:attribute name="_apiServerUrl" type="String" default=""
+                    description="API server URL."/>
+    <force:recordData recordId="{!v.recordId}" targetFields="{!v._appUser}"
                       layoutType="COMPACT" fields="ExternalId,Fullname__c"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <lightning:card variant="base" title="Picture" iconName="standard:avatar">
         <span class="slds-avatar slds-avatar_circle slds-avatar_large slds-align_absolute-center">
-            <img alt="{!v.appUser.Fullname__c}" title="{!v.appUser.Fullname__c}"
-                 src="{!join('/', 'https://api-xmessenger.herokuapp.com/open-api/user', v.appUser.ExternalId, 'picture')}"/>
+            <img alt="{!v._appUser.Fullname__c}" title="{!v._appUser.Fullname__c}"
+                 src="{!join('/', v._apiServerUrl, 'open-api/user', v._appUser.ExternalId, 'picture')}"/>
         </span>
         <aura:set attribute="footer">
-            <span class="slds-text-heading_small">{!v.appUser.Fullname__c}</span>
+            <span class="slds-text-heading_small">{!v._appUser.Fullname__c}</span>
         </aura:set>
     </lightning:card>
 </aura:component>
