@@ -22,7 +22,7 @@
         <field>AppUser__x.Logged_Externally__c</field>
     </columns>
     <format>Tabular</format>
-    <name>Logged in this week</name>
+    <name>Logged in This Week</name>
     <params>
         <name>co</name>
         <value>1</value>

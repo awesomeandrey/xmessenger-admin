@@ -42,7 +42,7 @@
         <field>AppUser__x.Logged_Externally__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
-    <name>Users by Login origin</name>
+    <name>Users by Login Origin</name>
     <params>
         <name>co</name>
         <value>1</value>
