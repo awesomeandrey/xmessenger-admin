@@ -1,0 +1,22 @@
+<aura:component extends="c:CommonAction" implements="lightning:utilityItem" controller="RelatedLinksController">
+    <aura:attribute name="links" type="Link__mdt[]" default="[]" description="Links list."/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-p-around--small">
+        <aura:if isTrue="{!empty(v.links)}">
+            <div class="slds-align_absolute-center slds-m-top--large">
+                <lightning:icon iconName="standard:empty" size="small" alternativeText="No related links found."/>
+                <span class="slds-text-title slds-m-left--x-small">No related links found.</span>
+            </div>
+            <aura:set attribute="else">
+                <aura:iteration items="{!v.links}" var="linkItem">
+                    <lightning:tile label="{!linkItem.Label}" href="{!linkItem.URL__c}">
+                        <aura:set attribute="media">
+                            <lightning:icon iconName="{!linkItem.Icon__c}"/>
+                        </aura:set>
+                        <lightning:formattedUrl value="{!linkItem.URL__c}" target="_blank"/>
+                    </lightning:tile>
+                </aura:iteration>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>
