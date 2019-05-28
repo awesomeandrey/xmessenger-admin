@@ -3,6 +3,7 @@ public class RelatedLinksController {
     public static List<Link__mdt> fetchLinks() {
         return [
                 SELECT Label
+                        , DeveloperName
                         , Icon__c
                         , URL__c
                 FROM Link__mdt

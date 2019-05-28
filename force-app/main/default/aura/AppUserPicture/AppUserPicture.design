@@ -1,5 +1,0 @@
-<design:component>
-    <sfdc:objects>
-        <sfdc:object>AppUser__x</sfdc:object>
-    </sfdc:objects>
-</design:component>
