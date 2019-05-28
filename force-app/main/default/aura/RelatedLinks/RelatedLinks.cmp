@@ -9,7 +9,7 @@
             </div>
             <aura:set attribute="else">
                 <aura:iteration items="{!v.links}" var="linkItem">
-                    <lightning:tile label="{!linkItem.Label}" href="{!linkItem.URL__c}">
+                    <lightning:tile label="{!linkItem.Label}">
                         <aura:set attribute="media">
                             <lightning:icon iconName="{!linkItem.Icon__c}"/>
                         </aura:set>
