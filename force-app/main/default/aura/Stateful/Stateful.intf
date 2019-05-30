@@ -1,3 +1,4 @@
 <aura:interface>
     <aura:attribute name="loading" type="Boolean" description="Ongoing process indicator." default="false"/>
+    <aura:attribute name="error" type="Object" description="Object containing error details." default="{}}"/>
 </aura:interface>
