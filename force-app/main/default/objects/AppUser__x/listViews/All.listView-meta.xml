@@ -4,11 +4,14 @@
     <columns>ExternalId</columns>
     <columns>Fullname__c</columns>
     <columns>Username__c</columns>
-    <columns>Active__c</columns>
     <columns>Last_Login__c</columns>
     <columns>Logged_Externally__c</columns>
-    <columns>Role_Code__c</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
     <label>All</label>
     <sharedTo>
         <group>Administration</group>
