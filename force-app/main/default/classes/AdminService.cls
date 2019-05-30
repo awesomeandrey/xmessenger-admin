@@ -15,16 +15,20 @@ public inherited sharing class AdminService {
     }
 
     public Boolean updateUser(AppUser__x appUser) {
-        HttpRequest req = this.composeRequest('/updateUser');
+        HttpRequest req = new HttpRequest();
+        req.setEndpoint('callout:API_Server/updateUser');
         req.setMethod('PUT');
         req.setBody(this.serializeUser(appUser));
-        HttpResponse response = new Http().send(req);
-        if (SC_FAILURE.contains(response.getStatusCode())) {
-            throw new CalloutException(
-                    String.format('Callout failure: {0} ({1})', new List<Object>{
-                            response.getStatus(), response.getStatusCode()
-                    }));
-        }
+        this.sendRequest(req);
+        return true;
+    }
+
+    public Boolean deleteUser(AppUser__x appUser) {
+        HttpRequest req = new HttpRequest();
+        req.setEndpoint('callout:API_Server/deleteUser');
+        req.setMethod('DELETE');
+        req.setBody(this.serializeUser(appUser));
+        this.sendRequest(req);
         return true;
     }
 
@@ -32,12 +36,17 @@ public inherited sharing class AdminService {
         return JSON.serialize(new AppUserWrapper(appUser));
     }
 
-    private HttpRequest composeRequest(String path) {
-        HttpRequest req = new HttpRequest();
-        req.setEndpoint('callout:API_Server' + path);
+    private HttpResponse sendRequest(HttpRequest req) {
         req.setTimeout(10000);
         req.setHeader('Content-Type', 'application/json');
-        return req;
+        HttpResponse response = new Http().send(req);
+        if (SC_FAILURE.contains(response.getStatusCode())) {
+            throw new CalloutException(
+                    String.format('Callout failure: {0} ({1})', new List<Object>{
+                            response.getStatus(), response.getStatusCode()
+                    }));
+        }
+        return response;
     }
 
     private class AppUserWrapper {

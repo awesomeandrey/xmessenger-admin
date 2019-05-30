@@ -20,6 +20,9 @@
         <componentInstances>
             <componentName>force:detailPanel</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentName>AppUserActionsPanel</componentName>
+        </componentInstances>
         <name>Facet-3b90494e-f794-42f9-aa69-1f522fddea10</name>
         <type>Facet</type>
     </flexiPageRegions>

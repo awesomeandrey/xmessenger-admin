@@ -13,16 +13,19 @@ public class AdminController {
     }
 
     @AuraEnabled
-    public static void activateUser(AppUser__x appUser) {
+    public static void reactivateUser(AppUser__x appUser) {
         AppUser__x userToUpdate = appUser.clone(false, true);
         userToUpdate.Active__c = true;
         updateUserInfo(userToUpdate);
     }
 
     @AuraEnabled
-    public static Object deleteUser() {
-        // TODO - use Continuation;
-        return null;
+    public static void deleteUser(AppUser__x appUser) {
+        try {
+            AdminService.getInstance().deleteUser(appUser);
+        } catch (Exception ex) {
+            throw new AuraHandledException(ex.getMessage());
+        }
     }
 
     private static void updateUserInfo(AppUser__x appUser) {
