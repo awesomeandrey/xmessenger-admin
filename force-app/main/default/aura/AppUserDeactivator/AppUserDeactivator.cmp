@@ -1,9 +1,10 @@
 <aura:component extends="c:CommonAction" access="global" controller="AdminController"
                 implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,c:Stateful">
+    <lightning:notificationsLibrary aura:id="notifLib"/>
 
     <aura:attribute name="_appUser" type="AppUser__x" description="Target record used by LDS." default="{}"/>
 
-    <force:recordData recordId="{!v.recordId}" layoutType="COMPACT"
+    <force:recordData recordId="{!v.recordId}" layoutType="COMPACT" aura:id="recordLoader"
                       targetFields="{!v._appUser}" fields="ExternalId,User_Id__c,Username__c"/>
 
     <div class="slds-text-align_center">
@@ -21,7 +22,7 @@
             </div>
         </aura:if>
         <aura:if isTrue="{!not(v.loading)}">
-            <lightning:button variant="destructive" label="Deactivate User" onclick="{!c.deactivateUser}"/>
+            <lightning:button variant="destructive" label="Deactivate User" onclick="{!c.deactivateAppUser}"/>
         </aura:if>
     </div>
 </aura:component>

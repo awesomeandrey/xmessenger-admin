@@ -6,16 +6,17 @@ public class AdminController {
     }
 
     @AuraEnabled
-    public static Object deactivateUser(AppUser__x appUser) {
-        System.debug('\n\n appUser => ' + appUser + '\n');
-//        HttpRequest req = new HttpRequest();
-////        req.setEndpoint('callout:API_Server/deactivateUser');
-//        req.setEndpoint('http://localhost:8080/admin-api/deactivateUser');
-//        req.setMethod('PUT');
-//        req.setBody(JSON.serialize(new AppUserWrapper(appUser)));
-//        return new Http().send(req);
+    public static void deactivateUser(AppUser__x appUser) {
+        AppUser__x userToUpdate = appUser.clone(false, true);
+        userToUpdate.Active__c = false;
+        updateUserInfo(userToUpdate);
+    }
 
-        return 'hey there';
+    @AuraEnabled
+    public static void activateUser(AppUser__x appUser) {
+        AppUser__x userToUpdate = appUser.clone(false, true);
+        userToUpdate.Active__c = true;
+        updateUserInfo(userToUpdate);
     }
 
     @AuraEnabled
@@ -24,13 +25,11 @@ public class AdminController {
         return null;
     }
 
-    private class AppUserWrapper {
-        private Integer id; // User ID;
-        private String username; // Username;
-
-        private AppUserWrapper(AppUser__x appUser) {
-            this.id = Integer.valueOf(appUser.User_Id__c);
-            this.username = appUser.Username__c;
+    private static void updateUserInfo(AppUser__x appUser) {
+        try {
+            AdminService.getInstance().updateUser(appUser);
+        } catch (Exception ex) {
+            throw new AuraHandledException(ex.getMessage());
         }
     }
 }
