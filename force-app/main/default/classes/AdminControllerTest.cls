@@ -6,11 +6,37 @@ private class AdminControllerTest {
     testMethod static void deactivateUser() {
         AppUser__x appUser = composeAppUser();
         Test.setMock(HttpCalloutMock.class, new TestRequest(SC_OK));
-        HttpResponse response = (HttpResponse) AdminController.deactivateUser(appUser);
-        System.assertEquals(SC_OK, response.getStatusCode());
+        AdminController.deactivateUser(appUser);
         Test.setMock(HttpCalloutMock.class, new TestRequest(SC_BAD_REQUEST));
-        response = (HttpResponse) AdminController.deactivateUser(appUser);
-        System.assertEquals(SC_BAD_REQUEST, response.getStatusCode());
+        try {
+            AdminController.deactivateUser(appUser);
+        } catch (Exception ex) {
+            System.assert(true);
+        }
+    }
+
+    testMethod static void reactivateUser() {
+        AppUser__x appUser = composeAppUser();
+        Test.setMock(HttpCalloutMock.class, new TestRequest(SC_OK));
+        AdminController.reactivateUser(appUser);
+        Test.setMock(HttpCalloutMock.class, new TestRequest(SC_BAD_REQUEST));
+        try {
+            AdminController.reactivateUser(appUser);
+        } catch (Exception ex) {
+            System.assert(true);
+        }
+    }
+
+    testMethod static void deleteUser() {
+        AppUser__x appUser = composeAppUser();
+        Test.setMock(HttpCalloutMock.class, new TestRequest(SC_OK));
+        AdminController.deleteUser(appUser);
+        Test.setMock(HttpCalloutMock.class, new TestRequest(SC_BAD_REQUEST));
+        try {
+            AdminController.deleteUser(appUser);
+        } catch (Exception ex) {
+            System.assert(true);
+        }
     }
 
     private static AppUser__x composeAppUser() {
