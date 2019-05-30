@@ -22,6 +22,13 @@
         </componentInstances>
         <componentInstances>
             <componentName>AppUserActionsPanel</componentName>
+            <visibilityRule>
+                <criteria>
+                    <leftValue>{!Record.Role_Code__c}</leftValue>
+                    <operator>EQUAL</operator>
+                    <rightValue>1</rightValue>
+                </criteria>
+            </visibilityRule>
         </componentInstances>
         <name>Facet-3b90494e-f794-42f9-aa69-1f522fddea10</name>
         <type>Facet</type>
