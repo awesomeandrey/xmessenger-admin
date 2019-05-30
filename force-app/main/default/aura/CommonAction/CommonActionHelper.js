@@ -51,4 +51,11 @@
     hideSpinner: function (component) {
         $A.util.addClass(component.find("spinner"), "slds-hide");
     },
+    toggleComponentState: function (component) {
+        if (!!component && component.isInstanceOf('c:Stateful')) {
+            component.set("v.loading", !component.get("v.loading"))
+        } else {
+            console.warn("Passed components does not implement 'c:Stateful' interface.");
+        }
+    }
 });

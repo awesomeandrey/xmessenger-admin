@@ -1,0 +1,3 @@
+<aura:interface>
+    <aura:attribute name="loading" type="Boolean" description="Ongoing process indicator." default="false"/>
+</aura:interface>
