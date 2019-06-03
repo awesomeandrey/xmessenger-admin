@@ -3,7 +3,9 @@ while getopts ":u:" opt; do
   case $opt in
     u)
         export ORG_NAME=$OPTARG
+
         printf "***DEPLOYMENT INITIATED***\n\n"
+
         printf "Target org name: %s\n\n" "$ORG_NAME"
 
         #Deploy via Metadata API;        
