@@ -16,13 +16,6 @@
             $A.enqueueAction(action);
         }));
     },
-    navigateToRecord: function (recordId) {
-        const navigationEvt = $A.get("e.force:navigateToSObject");
-        navigationEvt.setParams({
-            "recordId": recordId
-        });
-        navigationEvt.fire();
-    },
     showCustomModal: function (modalParams) {
         $A.createComponent("lightning:overlayLibrary", {},
             (overlayLib, status) => {
@@ -39,17 +32,6 @@
                     overlayLib.showCustomModal(modalParams)
                 }
             });
-    },
-    notify: function (params) {
-        const toastEvent = $A.get("e.force:showToast");
-        toastEvent.setParams(params);
-        toastEvent.fire();
-    },
-    showSpinner: function (component) {
-        $A.util.removeClass(component.find("spinner"), "slds-hide");
-    },
-    hideSpinner: function (component) {
-        $A.util.addClass(component.find("spinner"), "slds-hide");
     },
     toggleComponentState: function (component) {
         if (!!component && component.isInstanceOf('c:Stateful')) {

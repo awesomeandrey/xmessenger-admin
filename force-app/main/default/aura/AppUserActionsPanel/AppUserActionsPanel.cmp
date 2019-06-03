@@ -1,5 +1,5 @@
 <aura:component extends="c:CommonAction" access="global" controller="AdminController"
-                implements="flexipage:availableForRecordHome,force:hasRecordId,c:Stateful">
+                implements="flexipage:availableForRecordHome,force:hasRecordId">
     <lightning:notificationsLibrary aura:id="notifLib"/>
     <lightning:workspaceAPI aura:id="workspace"/>
 
