@@ -16,13 +16,6 @@
             $A.enqueueAction(action);
         }));
     },
-    navigateToRecord: function (recordId) {
-        const navigationEvt = $A.get("e.force:navigateToSObject");
-        navigationEvt.setParams({
-            "recordId": recordId
-        });
-        navigationEvt.fire();
-    },
     showCustomModal: function (modalParams) {
         $A.createComponent("lightning:overlayLibrary", {},
             (overlayLib, status) => {
@@ -40,15 +33,22 @@
                 }
             });
     },
-    notify: function (params) {
-        const toastEvent = $A.get("e.force:showToast");
-        toastEvent.setParams(params);
-        toastEvent.fire();
+    toggleComponentState: function (component) {
+        if (!!component && component.isInstanceOf('c:Stateful')) {
+            component.set("v.loading", !component.get("v.loading"));
+            return Promise.resolve(true);
+        } else {
+            return Promise.reject("Passed components does not implement 'c:Stateful' interface.");
+        }
     },
-    showSpinner: function (component) {
-        $A.util.removeClass(component.find("spinner"), "slds-hide");
+    invokeCallbackFunc: function (callback, params) {
+        if (!!callback && typeof callback === "function") {
+            callback(params || {});
+        }
     },
-    hideSpinner: function (component) {
-        $A.util.addClass(component.find("spinner"), "slds-hide");
-    },
+    closeConsoleTab: function (workspaceApi) {
+        workspaceApi.getFocusedTabInfo().then(response => {
+            workspaceApi.closeTab({tabId: response.tabId});
+        });
+    }
 });

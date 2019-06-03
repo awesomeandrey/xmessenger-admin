@@ -1,5 +1,5 @@
 public class RelatedLinksController {
-    @AuraEnabled
+    @AuraEnabled(Cacheable=true)
     public static List<Link__mdt> fetchLinks() {
         return [
                 SELECT Label
@@ -10,7 +10,7 @@ public class RelatedLinksController {
         ];
     }
 
-    @AuraEnabled
+    @AuraEnabled(Cacheable=true)
     public static String getApiServerUrl() {
         for (Link__mdt linkItem : fetchLinks()) {
             if (linkItem.DeveloperName.equals('API_server')) {
