@@ -1,12 +1,4 @@
 public inherited sharing class AdminService {
-    private final static Set<Integer> SC_FAILURE = new Set<Integer>{
-            400 // Bad request;
-            , 401 // Unauthorized;
-            , 403 // Forbidden;
-            , 415 // Unsupported Media type;
-            , 500 // Server error;
-    };
-
     private AdminService() {
     }
 
@@ -16,7 +8,7 @@ public inherited sharing class AdminService {
 
     public Boolean updateUser(AppUser__x appUser) {
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('callout:API_Server/updateUser');
+        req.setEndpoint(CalloutConstants.ENDPOINT + '/updateUser');
         req.setMethod('PUT');
         req.setBody(this.serializeUser(appUser));
         this.sendRequest(req);
@@ -25,7 +17,7 @@ public inherited sharing class AdminService {
 
     public Boolean deleteUser(AppUser__x appUser) {
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('callout:API_Server/deleteUser');
+        req.setEndpoint(CalloutConstants.ENDPOINT + '/deleteUser');
         req.setMethod('DELETE');
         req.setBody(this.serializeUser(appUser));
         this.sendRequest(req);
@@ -37,10 +29,10 @@ public inherited sharing class AdminService {
     }
 
     private HttpResponse sendRequest(HttpRequest req) {
-        req.setTimeout(10000);
-        req.setHeader('Content-Type', 'application/json');
+        req.setTimeout(CalloutConstants.DEFAULT_TIMEOUT);
+        req.setHeader('Content-Type', CalloutConstants.DEFAULT_CONTENT_TYPE);
         HttpResponse response = new Http().send(req);
-        if (SC_FAILURE.contains(response.getStatusCode())) {
+        if (CalloutConstants.SC_FAILURE.contains(response.getStatusCode())) {
             throw new CalloutException(
                     String.format('Callout failure: {0} ({1})', new List<Object>{
                             response.getStatus(), response.getStatusCode()
