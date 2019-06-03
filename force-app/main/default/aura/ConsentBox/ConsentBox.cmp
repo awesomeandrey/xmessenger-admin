@@ -1,0 +1,10 @@
+<aura:component extends="c:CommonAction">
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+
+    <aura:attribute name="onConfirmFunc" type="Object" description="Javascript callback function." required="true"/>
+
+    <div class="slds-is-relative">
+        <lightning:button variant="brand" type="button" label="Confirm" onclick="{!c.onConfirm}"/>
+        <lightning:button variant="neutral" type="button" label="Cancel" onclick="{!c.onCancel}"/>
+    </div>
+</aura:component>

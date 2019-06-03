@@ -35,9 +35,20 @@
     },
     toggleComponentState: function (component) {
         if (!!component && component.isInstanceOf('c:Stateful')) {
-            component.set("v.loading", !component.get("v.loading"))
+            component.set("v.loading", !component.get("v.loading"));
+            return Promise.resolve(true);
         } else {
-            console.warn("Passed components does not implement 'c:Stateful' interface.");
+            return Promise.reject("Passed components does not implement 'c:Stateful' interface.");
         }
+    },
+    invokeCallbackFunc: function (callback, params) {
+        if (!!callback && typeof callback === "function") {
+            callback(params || {});
+        }
+    },
+    closeConsoleTab: function (workspaceApi) {
+        workspaceApi.getFocusedTabInfo().then(response => {
+            workspaceApi.closeTab({tabId: response.tabId});
+        });
     }
 });

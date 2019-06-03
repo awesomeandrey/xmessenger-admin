@@ -3,6 +3,9 @@
     <lightning:notificationsLibrary aura:id="notifLib"/>
     <lightning:workspaceAPI aura:id="workspace"/>
 
+    <aura:attribute name="loading" type="Boolean" default="false"
+                    description="Ongoing process indicator (overloaded from interface)."/>
+
     <aura:attribute name="_appUser" type="AppUser__x" description="Target record used by LDS." default="{}"/>
 
     <force:recordData recordId="{!v.recordId}" layoutType="COMPACT" targetFields="{!v._appUser}"
@@ -10,18 +13,16 @@
 
     <div class="slds-box slds-box_x-small slds-theme_shade slds-theme_alert-texture slds-clearfix">
         <div class="slds-float_left">
-            <lightning:buttonGroup>
-                <aura:if isTrue="{!v._appUser.Active__c}">
-                    <lightning:button variant="neutral" label="Deactivate User"
-                                      onclick="{!c.deactivateAppUser}" disabled="{!v.loading}"/>
-                </aura:if>
-                <aura:if isTrue="{!not(v._appUser.Active__c)}">
-                    <lightning:button variant="success" label="Re-activate User"
-                                      onclick="{!c.reactivateAppUser}" disabled="{!v.loading}"/>
-                    <lightning:button variant="destructive" label="Delete User"
-                                      onclick="{!c.deleteAppUser}" disabled="{!v.loading}"/>
-                </aura:if>
-            </lightning:buttonGroup>
+            <aura:if isTrue="{!v._appUser.Active__c}">
+                <lightning:button variant="neutral" label="Deactivate User"
+                                  onclick="{!c.deactivateAppUser}" disabled="{!v.loading}"/>
+            </aura:if>
+            <aura:if isTrue="{!not(v._appUser.Active__c)}">
+                <lightning:button variant="brand" label="Re-activate User"
+                                  onclick="{!c.reactivateAppUser}" disabled="{!v.loading}"/>
+                <lightning:button variant="destructive" label="Delete User"
+                                  onclick="{!c.deleteAppUser}" disabled="{!v.loading}"/>
+            </aura:if>
         </div>
         <div class="slds-float_right slds-p-around_medium">
             <aura:if isTrue="{!v.loading}">
