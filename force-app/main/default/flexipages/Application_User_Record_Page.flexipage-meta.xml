@@ -21,7 +21,7 @@
             <componentName>force:detailPanel</componentName>
         </componentInstances>
         <componentInstances>
-            <componentName>AppUserActionsPanel</componentName>
+            <componentName>AU_ActionsPanel</componentName>
             <visibilityRule>
                 <criteria>
                     <leftValue>{!Record.Role_Code__c}</leftValue>
@@ -92,7 +92,7 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>AppUserPicture</componentName>
+            <componentName>AU_Picture</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>

@@ -1,0 +1,20 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader">
+    <aura:attribute name="_appUser" type="AppUser__x" default="{}"
+                    description="Target record to load data into."/>
+    <force:recordData recordId="{!v.recordId}"
+                      aura:id="recordLoader"
+                      targetFields="{!v._appUser}"
+                      layoutType="COMPACT"
+                      fields="Role_Code__c"/>
+    <div class="slds-box slds-box_small">
+        <aura:if isTrue="{!equals(v._appUser.Role_Code__c, 1)}">
+            <c:AU_Picture recordId="{!v.recordId}"/>
+            <c:AU_ActionsPanel recordId="{!v.recordId}" isQuickAction="true"/>
+            <aura:set attribute="else">
+                <div class="slds-align_absolute-center">
+                    <p>No actions available.</p>
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

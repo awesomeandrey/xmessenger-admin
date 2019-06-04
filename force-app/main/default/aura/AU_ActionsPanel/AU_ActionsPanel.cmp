@@ -3,6 +3,8 @@
     <lightning:notificationsLibrary aura:id="notifLib"/>
     <lightning:workspaceAPI aura:id="workspace"/>
 
+    <aura:attribute name="isQuickAction" type="Boolean" default="false"
+                    description="Boolean flag indicating call entry point."/>
     <aura:attribute name="loading" type="Boolean" default="false"
                     description="Ongoing process indicator (overloaded from interface)."/>
 
@@ -16,6 +18,8 @@
             <aura:if isTrue="{!v._appUser.Active__c}">
                 <lightning:button variant="neutral" label="Deactivate User"
                                   onclick="{!c.deactivateAppUser}" disabled="{!v.loading}"/>
+                <lightning:button variant="brand" label="Reset Password"
+                                  disabled="{!or(v.loading)}"/>
             </aura:if>
             <aura:if isTrue="{!not(v._appUser.Active__c)}">
                 <lightning:button variant="brand" label="Re-activate User"
@@ -24,11 +28,14 @@
                                   onclick="{!c.deleteAppUser}" disabled="{!v.loading}"/>
             </aura:if>
         </div>
-        <div class="slds-float_right slds-p-around_medium">
+        <div class="slds-float_right">
             <aura:if isTrue="{!v.loading}">
-                <div class="slds-is-relative">
-                    <lightning:spinner alternativeText="Loading" size="small" variant="brand"/>
+                <div class="slds-p-around_medium">
+                    <lightning:spinner alternativeText="Loading" size="small" variant="brand" class="slds-is-relative"/>
                 </div>
+            </aura:if>
+            <aura:if isTrue="{!and(v.isQuickAction, not(v.loading))}">
+                <lightning:button label="Close" onclick="{!c.closeQuickAction}"/>
             </aura:if>
         </div>
     </div>
