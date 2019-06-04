@@ -23,10 +23,5 @@
                 header: "Consent Screen", showCloseButton: false,
                 body: "Do you want to completely delete user account?", footer: formComponent
             }));
-    },
-    closeQuickAction: function (component, event, helper) {
-        if (component.get("v.isQuickAction")) {
-            $A.get("e.force:closeQuickAction").fire();
-        }
     }
 });

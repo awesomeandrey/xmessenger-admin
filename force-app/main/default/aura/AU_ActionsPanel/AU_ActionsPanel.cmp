@@ -3,8 +3,6 @@
     <lightning:notificationsLibrary aura:id="notifLib"/>
     <lightning:workspaceAPI aura:id="workspace"/>
 
-    <aura:attribute name="isQuickAction" type="Boolean" default="false"
-                    description="Boolean flag indicating call entry point."/>
     <aura:attribute name="loading" type="Boolean" default="false"
                     description="Ongoing process indicator (overloaded from interface)."/>
 
@@ -15,7 +13,7 @@
 
     <div class="slds-box slds-box_x-small slds-theme_shade slds-theme_alert-texture slds-clearfix">
         <lightning:layout multipleRows="true">
-            <lightning:layoutItem size="8">
+            <lightning:layoutItem size="9">
                 <lightning:buttonGroup>
                     <aura:if isTrue="{!v._appUser.Active__c}">
                         <lightning:button variant="neutral" label="Deactivate User"
@@ -31,16 +29,13 @@
                     </aura:if>
                 </lightning:buttonGroup>
             </lightning:layoutItem>
-            <lightning:layoutItem size="4">
+            <lightning:layoutItem size="3">
                 <div class="slds-float_right">
                     <aura:if isTrue="{!v.loading}">
                         <div class="slds-p-around_medium">
                             <lightning:spinner alternativeText="Loading" size="small"
                                                variant="brand" class="slds-is-relative"/>
                         </div>
-                    </aura:if>
-                    <aura:if isTrue="{!and(v.isQuickAction, not(v.loading))}">
-                        <lightning:button label="Close" onclick="{!c.closeQuickAction}"/>
                     </aura:if>
                 </div>
             </lightning:layoutItem>
