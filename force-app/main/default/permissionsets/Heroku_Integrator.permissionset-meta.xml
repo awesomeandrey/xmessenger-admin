@@ -83,6 +83,10 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <tabSettings>
+        <tab>Admin_Panel</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>AppUser__x</tab>
         <visibility>Visible</visibility>
     </tabSettings>
