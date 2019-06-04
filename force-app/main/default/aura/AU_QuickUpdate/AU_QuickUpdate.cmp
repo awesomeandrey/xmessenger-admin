@@ -7,11 +7,13 @@
                       layoutType="COMPACT"
                       fields="Role_Code__c"/>
 
-    <div class="slds-clearfix">
-        <div class="slds-float_right">
-            <lightning:button label="Close" onclick="{!c.closeQuickAction}" class="slds-m-bottom--small"/>
+    <aura:if isTrue="{!$Browser.isPhone}">
+        <div class="slds-clearfix">
+            <div class="slds-float_right">
+                <lightning:button label="Close" onclick="{!c.closeQuickAction}" class="slds-m-bottom--small"/>
+            </div>
         </div>
-    </div>
+    </aura:if>
     <aura:if isTrue="{!equals(v._appUser.Role_Code__c, 1)}">
         <c:AU_Picture recordId="{!v.recordId}"/>
         <c:AU_ActionsPanel recordId="{!v.recordId}"/>
