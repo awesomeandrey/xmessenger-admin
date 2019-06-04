@@ -10,7 +10,7 @@
     processActionOnSuccess: function (component) {
         const notifLib = component.find("notifLib");
         component.set("v._error", {});
-        notifLib.showToast({variant: "success", title: "Done", message: "User was successfully updated."});
+        notifLib.showToast({variant: "success", title: "Done!", message: "User was successfully updated."});
     },
     processActionOnFailure: function (component, error) {
         const notifLib = component.find("notifLib"), errorObj = error[0];

@@ -14,29 +14,36 @@
                       fields="ExternalId,User_Id__c,Username__c,Active__c"/>
 
     <div class="slds-box slds-box_x-small slds-theme_shade slds-theme_alert-texture slds-clearfix">
-        <div class="slds-float_left">
-            <aura:if isTrue="{!v._appUser.Active__c}">
-                <lightning:button variant="neutral" label="Deactivate User"
-                                  onclick="{!c.deactivateAppUser}" disabled="{!v.loading}"/>
-                <lightning:button variant="brand" label="Reset Password"
-                                  disabled="{!or(v.loading)}"/>
-            </aura:if>
-            <aura:if isTrue="{!not(v._appUser.Active__c)}">
-                <lightning:button variant="brand" label="Re-activate User"
-                                  onclick="{!c.reactivateAppUser}" disabled="{!v.loading}"/>
-                <lightning:button variant="destructive" label="Delete User"
-                                  onclick="{!c.deleteAppUser}" disabled="{!v.loading}"/>
-            </aura:if>
-        </div>
-        <div class="slds-float_right">
-            <aura:if isTrue="{!v.loading}">
-                <div class="slds-p-around_medium">
-                    <lightning:spinner alternativeText="Loading" size="small" variant="brand" class="slds-is-relative"/>
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="8">
+                <lightning:buttonGroup>
+                    <aura:if isTrue="{!v._appUser.Active__c}">
+                        <lightning:button variant="neutral" label="Deactivate User"
+                                          onclick="{!c.deactivateAppUser}" disabled="{!v.loading}"/>
+                        <lightning:button variant="brand" label="Reset Password"
+                                          disabled="{!or(v.loading)}"/>
+                    </aura:if>
+                    <aura:if isTrue="{!not(v._appUser.Active__c)}">
+                        <lightning:button variant="brand" label="Activate User"
+                                          onclick="{!c.reactivateAppUser}" disabled="{!v.loading}"/>
+                        <lightning:button variant="destructive" label="Delete User"
+                                          onclick="{!c.deleteAppUser}" disabled="{!v.loading}"/>
+                    </aura:if>
+                </lightning:buttonGroup>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4">
+                <div class="slds-float_right">
+                    <aura:if isTrue="{!v.loading}">
+                        <div class="slds-p-around_medium">
+                            <lightning:spinner alternativeText="Loading" size="small"
+                                               variant="brand" class="slds-is-relative"/>
+                        </div>
+                    </aura:if>
+                    <aura:if isTrue="{!and(v.isQuickAction, not(v.loading))}">
+                        <lightning:button label="Close" onclick="{!c.closeQuickAction}"/>
+                    </aura:if>
                 </div>
-            </aura:if>
-            <aura:if isTrue="{!and(v.isQuickAction, not(v.loading))}">
-                <lightning:button label="Close" onclick="{!c.closeQuickAction}"/>
-            </aura:if>
-        </div>
+            </lightning:layoutItem>
+        </lightning:layout>
     </div>
 </aura:component>
