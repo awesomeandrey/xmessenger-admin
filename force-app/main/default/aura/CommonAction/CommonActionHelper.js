@@ -47,7 +47,7 @@
         }
     },
     closeConsoleTab: function (workspaceApi) {
-        workspaceApi.getFocusedTabInfo().then(response => {
+        return workspaceApi.getFocusedTabInfo().then(response => {
             workspaceApi.closeTab({tabId: response.tabId});
         });
     }

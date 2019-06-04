@@ -1,4 +1,4 @@
-<aura:component extensible="true" implements="c:Stateful" description="Service component with basic methods">
-    <!--Content of the sub component-->
+<aura:component extensible="true" implements="c:Stateful"
+                description="Service component with basic methods">
     {!v.body}
 </aura:component>
