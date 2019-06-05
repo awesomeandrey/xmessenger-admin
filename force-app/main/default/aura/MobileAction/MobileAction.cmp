@@ -1,0 +1,11 @@
+<aura:component extensible="true" description="Wrapper component for mobile actions."
+                implements="force:hasRecordId,force:lightningQuickActionWithoutHeader">
+    <aura:if isTrue="{!or($Browser.isPhone, $Browser.isTablet)}">
+        <div class="slds-clearfix">
+            <div class="slds-float_right">
+                <lightning:button label="Close" onclick="{!c.closeQuickAction}" class="slds-m-bottom--small"/>
+            </div>
+        </div>
+    </aura:if>
+    {!v.body}
+</aura:component>

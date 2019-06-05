@@ -1,4 +1,4 @@
-<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader">
+<aura:component extends="c:MobileAction">
     <aura:attribute name="_appUser" type="AppUser__x" default="{}"
                     description="Target record to load data into."/>
     <force:recordData recordId="{!v.recordId}"
@@ -6,14 +6,6 @@
                       targetFields="{!v._appUser}"
                       layoutType="COMPACT"
                       fields="Role_Code__c"/>
-
-    <aura:if isTrue="{!or($Browser.isPhone, $Browser.isTablet)}">
-        <div class="slds-clearfix">
-            <div class="slds-float_right">
-                <lightning:button label="Close" onclick="{!c.closeQuickAction}" class="slds-m-bottom--small"/>
-            </div>
-        </div>
-    </aura:if>
     <aura:if isTrue="{!equals(v._appUser.Role_Code__c, 1)}">
         <c:AU_Picture recordId="{!v.recordId}"/>
         <c:AU_ActionsPanel recordId="{!v.recordId}"/>
