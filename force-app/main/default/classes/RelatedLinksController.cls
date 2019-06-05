@@ -6,6 +6,7 @@ public class RelatedLinksController {
                         , DeveloperName
                         , Icon__c
                         , URL__c
+                        , About__c
                 FROM Link__mdt
         ];
     }

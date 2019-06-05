@@ -1,7 +1,8 @@
-<aura:component extends="c:CommonAction" implements="lightning:utilityItem" controller="RelatedLinksController">
+<aura:component extends="c:CommonAction" controller="RelatedLinksController"
+                implements="flexipage:availableForAllPageTypes,lightning:utilityItem">
     <aura:attribute name="links" type="Link__mdt[]" default="[]" description="Links list."/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <div class="slds-p-around--small">
+    <div class="slds-theme_default slds-p-around--small">
         <aura:if isTrue="{!v.loading}">
             <lightning:spinner alternativeText="Loading" size="small" variant="brand"/>
         </aura:if>
@@ -12,7 +13,7 @@
             </div>
             <aura:set attribute="else">
                 <aura:iteration items="{!v.links}" var="linkItem">
-                    <lightning:tile label="{!linkItem.Label}">
+                    <lightning:tile label="{!linkItem.Label}" class="slds-truncate">
                         <aura:set attribute="media">
                             <lightning:icon iconName="{!linkItem.Icon__c}"/>
                         </aura:set>

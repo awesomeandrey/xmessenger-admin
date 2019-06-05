@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Intended for mobile/tablet devices only.</description>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
@@ -42,6 +43,9 @@
                 <value>true</value>
             </componentInstanceProperties>
             <componentName>flexipage:reportChart</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>RelatedLinks</componentName>
         </componentInstances>
         <name>main</name>
         <type>Region</type>

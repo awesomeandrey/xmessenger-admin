@@ -3,6 +3,10 @@
     <label>GitHub</label>
     <protected>false</protected>
     <values>
+        <field>About__c</field>
+        <value xsi:type="xsd:string">VCS repository</value>
+    </values>
+    <values>
         <field>Icon__c</field>
         <value xsi:type="xsd:string">standard:sobject_collection</value>
     </values>

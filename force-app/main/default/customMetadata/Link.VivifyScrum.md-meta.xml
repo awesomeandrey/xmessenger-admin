@@ -3,6 +3,10 @@
     <label>VivifyScrum</label>
     <protected>false</protected>
     <values>
+        <field>About__c</field>
+        <value xsi:type="xsd:string">Scrum board for agile project management</value>
+    </values>
+    <values>
         <field>Icon__c</field>
         <value xsi:type="xsd:string">standard:solution</value>
     </values>

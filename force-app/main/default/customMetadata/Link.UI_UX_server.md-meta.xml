@@ -3,6 +3,10 @@
     <label>UI/UX server</label>
     <protected>false</protected>
     <values>
+        <field>About__c</field>
+        <value xsi:type="xsd:string">Application visual representation</value>
+    </values>
+    <values>
         <field>Icon__c</field>
         <value xsi:type="xsd:string">standard:marketing_actions</value>
     </values>
