@@ -31,15 +31,11 @@
     <tabs>standard-home</tabs>
     <tabs>standard-report</tabs>
     <tabs>AppUser__x</tabs>
-    <tabs>Relation__x</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>xMessenger_UtilityBar</utilityBar>
     <workspaceConfig>
         <mappings>
             <tab>AppUser__x</tab>
-        </mappings>
-        <mappings>
-            <tab>Relation__x</tab>
         </mappings>
         <mappings>
             <tab>standard-home</tab>
