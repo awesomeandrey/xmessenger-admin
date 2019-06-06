@@ -72,17 +72,6 @@
             <sortOrder>0</sortOrder>
         </platformActionListItems>
     </platformActionList>
-    <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>ExternalId</fields>
-        <fields>AppUser_2__c</fields>
-        <relatedList>Relation__x.AppUser_1__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>ExternalId</fields>
-        <fields>AppUser_1__c</fields>
-        <relatedList>Relation__x.AppUser_2__c</relatedList>
-    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
