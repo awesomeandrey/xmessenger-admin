@@ -1,13 +1,10 @@
 @IsTest
 private class AdminControllerTest {
-    private final static Integer SC_OK = 200;
-    private final static Integer SC_BAD_REQUEST = 400;
-
     testMethod static void deactivateUser() {
         AppUser__x appUser = composeAppUser();
-        Test.setMock(HttpCalloutMock.class, new TestRequest(SC_OK));
+        Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_OK));
         AdminController.deactivateUser(appUser);
-        Test.setMock(HttpCalloutMock.class, new TestRequest(SC_BAD_REQUEST));
+        Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_BAD_REQUEST));
         try {
             AdminController.deactivateUser(appUser);
         } catch (Exception ex) {
@@ -17,9 +14,9 @@ private class AdminControllerTest {
 
     testMethod static void reactivateUser() {
         AppUser__x appUser = composeAppUser();
-        Test.setMock(HttpCalloutMock.class, new TestRequest(SC_OK));
+        Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_OK));
         AdminController.reactivateUser(appUser);
-        Test.setMock(HttpCalloutMock.class, new TestRequest(SC_BAD_REQUEST));
+        Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_BAD_REQUEST));
         try {
             AdminController.reactivateUser(appUser);
         } catch (Exception ex) {
@@ -29,9 +26,9 @@ private class AdminControllerTest {
 
     testMethod static void deleteUser() {
         AppUser__x appUser = composeAppUser();
-        Test.setMock(HttpCalloutMock.class, new TestRequest(SC_OK));
+        Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_OK));
         AdminController.deleteUser(appUser);
-        Test.setMock(HttpCalloutMock.class, new TestRequest(SC_BAD_REQUEST));
+        Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_BAD_REQUEST));
         try {
             AdminController.deleteUser(appUser);
         } catch (Exception ex) {

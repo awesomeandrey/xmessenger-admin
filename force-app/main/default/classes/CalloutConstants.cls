@@ -1,6 +1,9 @@
 public class CalloutConstants {
+    public final static Integer SC_OK = 200;
+    public final static Integer SC_BAD_REQUEST = 400;
+
     public final static Set<Integer> SC_FAILURE = new Set<Integer>{
-            400 // Bad request;
+            SC_BAD_REQUEST // Bad request;
             , 401 // Unauthorized;
             , 403 // Forbidden;
             , 415 // Unsupported Media type;

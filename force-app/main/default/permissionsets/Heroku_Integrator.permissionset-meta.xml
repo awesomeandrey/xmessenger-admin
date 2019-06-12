@@ -19,6 +19,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>AppUser__x.Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>AppUser__x.Fullname__c</field>
         <readable>true</readable>
     </fieldPermissions>

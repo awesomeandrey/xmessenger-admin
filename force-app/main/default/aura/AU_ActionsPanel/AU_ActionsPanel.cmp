@@ -1,10 +1,10 @@
 <aura:component extends="c:CommonAction" access="global" controller="AdminController"
                 implements="flexipage:availableForRecordHome,force:hasRecordId">
-    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <lightning:notificationsLibrary aura:id="notificationLib"/>
     <lightning:workspaceAPI aura:id="workspace"/>
 
     <aura:attribute name="loading" type="Boolean" default="false"
-                    description="Ongoing process indicator (overloaded from interface)."/>
+                    description="Ongoing process indicator (overwritten from 'c:CommonAction')."/>
 
     <aura:attribute name="_appUser" type="AppUser__x" description="Target record used by LDS." default="{}"/>
 
@@ -19,7 +19,7 @@
                         <lightning:button variant="neutral" label="Deactivate User"
                                           onclick="{!c.deactivateAppUser}" disabled="{!v.loading}"/>
                         <lightning:button variant="brand" label="Reset Password"
-                                          disabled="{!or(v.loading)}"/>
+                                          onclick="{!c.resetAppUserPassword}" disabled="{!or(v.loading)}"/>
                     </aura:if>
                     <aura:if isTrue="{!not(v._appUser.Active__c)}">
                         <lightning:button variant="brand" label="Activate User"
