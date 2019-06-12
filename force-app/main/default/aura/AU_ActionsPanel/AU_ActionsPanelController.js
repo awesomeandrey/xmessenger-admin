@@ -1,18 +1,19 @@
 ({
     deactivateAppUser: function (component, event, helper) {
-        helper.processAction(component, "c.deactivateUser");
+        helper.processAction(component, "c.deactivateUser")
+            .then($A.getCallback(_ => $A.get("e.force:refreshView").fire()));
     },
     reactivateAppUser: function (component, event, helper) {
-        helper.processAction(component, "c.reactivateUser");
+        helper.processAction(component, "c.reactivateUser")
+            .then($A.getCallback(_ => $A.get("e.force:refreshView").fire()));
     },
     deleteAppUser: function (component, event, helper) {
         const workspaceApi = component.find("workspace"), appUser = component.get("v._appUser");
         helper.openConsentBox(workspaceApi, _ => {
-            helper.toggleComponentState(component)
-                .then($A.getCallback(_ => helper.performAction(component, "c.deleteUser", {appUser})))
-                .catch($A.getCallback(error => {
-                    helper.processActionOnFailure(component, error);
-                    helper.processActionOnComplete(component);
+            helper.processAction(component, "c.deleteUser")
+                .then($A.getCallback(_ => {
+                    const error = component.get("v.error");
+                    if ($A.util.isEmpty(error)) helper.closeConsoleTab(workspaceApi);
                 }));
         }, {body: `Do you want to completely delete account for ${appUser.Fullname__c}?`});
     },
