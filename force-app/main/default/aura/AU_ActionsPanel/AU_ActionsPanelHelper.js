@@ -20,5 +20,16 @@
     processActionOnComplete: function (component) {
         $A.get("e.force:refreshView").fire();
         this.toggleComponentState(component);
+    },
+    openConsentBox: function (workspaceApi, onConfirmFunc, boxDetails) {
+        $A.createComponent("c:ConsentBox",
+            {onConfirmFunc}, formComponent => {
+                boxDetails = Object.assign({
+                    header: "Consent Screen",
+                    showCloseButton: false,
+                    footer: formComponent
+                }, boxDetails);
+                this.showCustomModal(boxDetails);
+            });
     }
 });
