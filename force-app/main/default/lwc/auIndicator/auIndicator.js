@@ -1,14 +1,23 @@
 import {LightningElement, api} from "lwc";
+import {NavigationMixin} from "lightning/navigation";
 
-export default class AuIndicator extends LightningElement {
+export default class AuIndicator extends NavigationMixin(LightningElement) {
     @api appUser = {};
 
-    handleNavigateToRecord() {
-        console.log(JSON.stringify(this.appUser));
-        debugger;
+    handleNavigateToRecord(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        this[NavigationMixin.Navigate]({
+            type: "standard__recordPage",
+            attributes: {
+                recordId: this.appUser.Id,
+                objectApiName: "AppUser__x",
+                actionName: "view"
+            }
+        });
     }
 
     connectedCallback() {
-        debugger;
+        this.addEventListener("click", this.handleNavigateToRecord);
     }
 }
