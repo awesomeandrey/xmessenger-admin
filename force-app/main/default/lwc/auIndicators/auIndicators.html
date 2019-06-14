@@ -2,28 +2,12 @@
     <lightning-card title="App User Indicators">
         <lightning-button label="Refresh" slot="actions"></lightning-button>
         <lightning-layout multiple-rows class=slds-m-horizontal--small>
-            <lightning-layout-item size="6" class="slds-p-around_xx-small">
-                <c-au-indicator></c-au-indicator>
-            </lightning-layout-item>
-            <lightning-layout-item size="6" class="slds-p-around_xx-small">
-                <c-au-indicator></c-au-indicator>
-            </lightning-layout-item>
-            <lightning-layout-item size="6" class="slds-p-around_xx-small">
-                <c-au-indicator></c-au-indicator>
-            </lightning-layout-item>
-            <lightning-layout-item size="6" class="slds-p-around_xx-small">
-                <c-au-indicator></c-au-indicator>
-            </lightning-layout-item>
-            <lightning-layout-item size="6" class="slds-p-around_xx-small">
-                <c-au-indicator></c-au-indicator>
-            </lightning-layout-item>
-            <lightning-layout-item size="6" class="slds-p-around_xx-small">
-                <c-au-indicator></c-au-indicator>
-            </lightning-layout-item>
-            <lightning-layout-item size="6" class="slds-p-around_xx-small">
-                <c-au-indicator></c-au-indicator>
-            </lightning-layout-item>
+            <template for:each={appUsers} for:item="appUser">
+                <lightning-layout-item size="6" class="slds-p-around_xx-small" key={appUser.Id}>
+                    <c-au-indicator app-user={appUser}></c-au-indicator>
+                </lightning-layout-item>
+            </template>
         </lightning-layout>
-        <p slot="footer">0 users online</p>
+        <p slot="footer">{appUsers.length} users online</p>
     </lightning-card>
 </template>
