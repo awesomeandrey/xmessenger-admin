@@ -1,23 +1,34 @@
-import {LightningElement} from "lwc";
+import {LightningElement, track} from "lwc";
 
 export default class AuIndicators extends LightningElement {
-    appUsers = [
-        {
-            Id: "x001x0000008Ry9AAE",
-            Fullname__c: "Test U1",
-            Username__c: "username #1",
-        }, {
-            Id: "x001x0000008Ry9AAE",
-            Fullname__c: "Test U2",
-            Username__c: "username #2",
-        }, {
-            Id: "x001x0000008Ry9AAE",
-            Fullname__c: "Test U3",
-            Username__c: "username #3",
-        }
-    ]
+    @track appUsers = [];
+    @track loading = false;
 
-    handleRefreshIndicators(){
+    handleRefreshIndicators() {
+        debugger;
+        this.loading = true;
+        setTimeout(_ => {
+            this.loading = false;
+            this.appUsers = [
+                {
+                    Id: "x001x0000008Ry9AAE",
+                    Fullname__c: "Test",
+                    Username__c: "test",
+                },
+                {
+                    Id: "x001x0000008Ry9AAE",
+                    Fullname__c: "Test",
+                    Username__c: "test",
+                }, {
+                    Id: "x001x0000008Ry9AAE",
+                    Fullname__c: "Test",
+                    Username__c: "test",
+                }
+            ];
+        }, 2500);
+    }
 
+    connectedCallback() {
+        this.handleRefreshIndicators();
     }
 }

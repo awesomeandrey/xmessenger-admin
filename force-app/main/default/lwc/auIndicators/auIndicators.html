@@ -1,6 +1,9 @@
 <template>
     <lightning-card title="App User Indicators">
         <lightning-button label="Refresh" slot="actions" onclick={handleRefreshIndicators}></lightning-button>
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading" size="small" variant="brand"></lightning-spinner>
+        </template>
         <lightning-layout multiple-rows class=slds-m-horizontal--small>
             <template for:each={appUsers} for:item="appUser">
                 <lightning-layout-item size="6" class="slds-p-around_xx-small" key={appUser.Id}>
