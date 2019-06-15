@@ -41,7 +41,7 @@ private class AdminControllerTest {
         AppUser__x appUser = new AppUser__x();
         appUser.ExternalId = userId;
         appUser.User_Id__c = Integer.valueOf(userId);
-        appUser.Fullname__c = 'Test App User';
+        appUser.Name__c = 'Test App User';
         appUser.Username__c = 'test';
         return appUser;
     }

@@ -15,13 +15,13 @@
                     const error = component.get("v.error");
                     if ($A.util.isEmpty(error)) helper.closeConsoleTab(workspaceApi);
                 }));
-        }, {body: `Do you want to completely delete account for ${appUser.Fullname__c}?`});
+        }, {body: `Do you want to completely delete account for ${appUser.Name__c}?`});
     },
     resetAppUserPassword: function (component, event, helper) {
         const workspaceApi = component.find("workspace"), appUser = component.get("v._appUser");
         helper.openConsentBox(workspaceApi, _ => {
             // todo - implement;
-            alert(`Reset password for ${appUser.Fullname__c}`);
-        }, {body: `Do you want to reset password for ${appUser.Fullname__c}?`});
+            alert(`Reset password for ${appUser.Name__c}`);
+        }, {body: `Do you want to reset password for ${appUser.Name__c}?`});
     }
 });

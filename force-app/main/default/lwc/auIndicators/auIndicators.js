@@ -12,16 +12,16 @@ export default class AuIndicators extends LightningElement {
             this.appUsers = [
                 {
                     Id: "x001x0000008Ry9AAE",
-                    Fullname__c: "Test",
+                    Name__c: "Test",
                     Username__c: "test",
                 },
                 {
                     Id: "x001x0000008Ry9AAE",
-                    Fullname__c: "Test",
+                    Name__c: "Test",
                     Username__c: "test",
                 }, {
                     Id: "x001x0000008Ry9AAE",
-                    Fullname__c: "Test",
+                    Name__c: "Test",
                     Username__c: "test",
                 }
             ];
