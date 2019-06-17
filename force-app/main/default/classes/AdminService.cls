@@ -25,7 +25,7 @@ public inherited sharing class AdminService {
     }
 
     public List<Object> getUsersOnline(){
-
+        return null;
     }
 
     private String serializeUser(AppUser__x appUser) {
