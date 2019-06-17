@@ -24,6 +24,10 @@ public inherited sharing class AdminService {
         return true;
     }
 
+    public List<Object> getUsersOnline(){
+
+    }
+
     private String serializeUser(AppUser__x appUser) {
         return JSON.serialize(new AppUserWrapper(appUser));
     }

@@ -1,6 +1,6 @@
 public without sharing class AdminController {
     @AuraEnabled
-    public static List<Object> getUserIndicators() {
+    public static List<AppUser__x> getUsersOnline() {
         // TODO - used for interactive tab displaying users online;
         return null;
     }
