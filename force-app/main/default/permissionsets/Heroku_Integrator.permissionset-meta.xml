@@ -24,7 +24,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>AppUser__x.Fullname__c</field>
+        <field>AppUser__x.Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
