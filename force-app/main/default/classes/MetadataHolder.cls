@@ -3,7 +3,7 @@ public inherited sharing class MetadataHolder {
             'Id', 'MasterLabel', 'Language', 'NamespacePrefix', 'QualifiedApiName'
     };
 
-    public MetadataHolder() {
+    private MetadataHolder() {
     }
 
     public static MetadataHolder getInstance() {
@@ -19,8 +19,9 @@ public inherited sharing class MetadataHolder {
 
     public List<SObject> get(SObjectType sObjectType, Set<String> devNames) {
         List<SObject> result = new List<SObject>(), metadataTypesAll = this.getAll(sObjectType);
+        String devName = null;
         for (SObject sobjectToCheck : metadataTypesAll) {
-            String devName = (String) sobjectToCheck.get('DeveloperName');
+            devName = (String) sobjectToCheck.get('DeveloperName');
             if (devNames.contains(devName)) {
                 result.add(sobjectToCheck);
             }
@@ -43,14 +44,13 @@ public inherited sharing class MetadataHolder {
 
     private String buildQuery(SObjectType sObjectType) {
         List<SObjectField> fieldsList = sObjectType.getDescribe().fields.getMap().values();
-        this.filterFieldsList(fieldsList);
-        System.debug('\n\n fieldsList => ' + fieldsList + '\n');
+        Set<SObjectField> filteredFields = this.filterFieldsList(fieldsList);
         return String.format('SELECT {0} FROM {1}', new List<String>{
-                this.composeFieldsQuery(fieldsList), sObjectType.getDescribe().getName()
+                this.composeFieldsQuery(filteredFields), sObjectType.getDescribe().getName()
         });
     }
 
-    private void filterFieldsList(List<SObjectField> fieldsList) {
+    private Set<SObjectField> filterFieldsList(List<SObjectField> fieldsList) {
         Set<SObjectField> filteredFields = new Set<SObjectField>();
         String fieldName = null;
         for (SObjectField fieldItem : fieldsList) {
@@ -59,10 +59,10 @@ public inherited sharing class MetadataHolder {
                 filteredFields.add(fieldItem);
             }
         }
-        fieldsList = new List<SObjectField>(filteredFields);
+        return filteredFields;
     }
 
-    private String composeFieldsQuery(List<SObjectField> fieldsList) {
+    private String composeFieldsQuery(Set<SObjectField> fieldsList) {
         List<String> fieldNames = new List<String>();
         for (SObjectField fieldDetails : fieldsList) {
             fieldNames.add(fieldDetails.getDescribe().getName());
