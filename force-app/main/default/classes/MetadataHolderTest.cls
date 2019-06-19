@@ -6,14 +6,16 @@ private class MetadataHolderTest {
         MetadataHolder metadataHolder = MetadataHolder.getInstance();
         Link__mdt apiServerLink = (Link__mdt) metadataHolder.get(Link__mdt.getSObjectType(), customMetadataTypeDevName);
         System.assertEquals(customMetadataTypeDevName, apiServerLink.DeveloperName);
+        SObject result = metadataHolder.get(Link__mdt.getSObjectType(), 'unknown_custom_md_type');
+        System.assertEquals(null, result);
     }
 
     @IsTest
     static void getCustomMetadataType_Error() {
-        String customMetadataTypeDevName = 'unknown_md_type';
         MetadataHolder metadataHolder = MetadataHolder.getInstance();
         try {
-            metadataHolder.get(Link__mdt.getSObjectType(), customMetadataTypeDevName);
+            metadataHolder.getAll(Account.getSObjectType());
+            System.assertEquals(1, 2); // explicit test failure;
         } catch (SObjectException ex) {
             System.assert(true);
         }
