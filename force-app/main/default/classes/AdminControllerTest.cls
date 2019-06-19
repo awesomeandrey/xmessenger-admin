@@ -1,24 +1,12 @@
 @IsTest
 private class AdminControllerTest {
-    testMethod static void deactivateUser() {
+    testMethod static void updateUserInfo() {
         AppUser__x appUser = composeAppUser();
         Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_OK));
-        AdminController.deactivateUser(appUser);
+        AdminController.updateUserInfo(appUser);
         Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_BAD_REQUEST));
         try {
-            AdminController.deactivateUser(appUser);
-        } catch (Exception ex) {
-            System.assert(true);
-        }
-    }
-
-    testMethod static void reactivateUser() {
-        AppUser__x appUser = composeAppUser();
-        Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_OK));
-        AdminController.reactivateUser(appUser);
-        Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_BAD_REQUEST));
-        try {
-            AdminController.reactivateUser(appUser);
+            AdminController.updateUserInfo(appUser);
         } catch (Exception ex) {
             System.assert(true);
         }
