@@ -10,6 +10,15 @@ public without sharing virtual class CalloutExecutor {
         return response;
     }
 
+    public HttpResponse sendRequest(String endpoint) {
+        HttpRequest req = new HttpRequest();
+        req.setEndpoint(endpoint);
+        req.setMethod('GET');
+        req.setTimeout(CalloutConstants.DEFAULT_TIMEOUT);
+        req.setHeader('Content-Type', CalloutConstants.DEFAULT_CONTENT_TYPE);
+        return this.sendRequest(req);
+    }
+
     public HttpResponse sendRequest(String endpoint, String method, Object body) {
         HttpRequest req = new HttpRequest();
         req.setEndpoint(endpoint);

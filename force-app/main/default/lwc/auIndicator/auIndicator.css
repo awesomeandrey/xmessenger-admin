@@ -1,4 +1,4 @@
-li:before {
+li:first-child:before {
     content: "@";
 }
 

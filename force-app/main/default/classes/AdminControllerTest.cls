@@ -1,5 +1,16 @@
 @IsTest
 private class AdminControllerTest {
+    testMethod static void getUsersOnline() {
+        Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_OK));
+        AdminController.getUsersOnline();
+        Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_BAD_REQUEST));
+        try {
+            AdminController.getUsersOnline();
+        } catch (Exception ex) {
+            System.assert(true);
+        }
+    }
+
     testMethod static void updateUserInfo() {
         AppUser__x appUser = composeAppUser();
         Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_OK));
