@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Defines entity field mappings between Salesforce and API server. Entity sample: &#39;AppUser&#39;.</description>
-    <label>Entity Mapping</label>
-    <pluralLabel>Entity Mappings</pluralLabel>
-    <visibility>Public</visibility>
-</CustomObject>
