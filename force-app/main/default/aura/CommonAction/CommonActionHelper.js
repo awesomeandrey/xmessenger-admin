@@ -22,10 +22,8 @@
                 if (status === "SUCCESS") {
                     const customCloseCallback = modalParams.closeCallback;
                     modalParams.closeCallback = _ => {
-                        if (!!customCloseCallback) {
-                            // Execute custom callback function if present;
-                            customCloseCallback();
-                        }
+                        // Execute custom callback function if present;
+                        this.invokeCallbackFunc(customCloseCallback);
                         // Destroy modal component;
                         overlayLib.destroy();
                     };
@@ -50,5 +48,25 @@
         return workspaceApi.getFocusedTabInfo().then(response => {
             workspaceApi.closeTab({tabId: response.tabId});
         });
+    },
+    openConsentBox: function (workspaceApi, onConfirmFunc, boxDetails) {
+        $A.createComponent("c:ConsentBox",
+            {onConfirmFunc}, formComponent => {
+                boxDetails = Object.assign({
+                    header: "Consent Screen",
+                    showCloseButton: false,
+                    footer: formComponent
+                }, boxDetails);
+                this.showCustomModal(boxDetails);
+            });
+    },
+    copyObject: function iterationCopy(sourceObject) {
+        let targetObject = {};
+        for (let prop in sourceObject) {
+            if (sourceObject.hasOwnProperty(prop)) {
+                targetObject[prop] = sourceObject[prop];
+            }
+        }
+        return targetObject;
     }
 });
