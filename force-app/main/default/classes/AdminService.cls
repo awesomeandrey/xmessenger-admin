@@ -30,7 +30,6 @@ public inherited sharing class AdminService extends CalloutExecutor {
                 SELECT Id
                         , Name__c
                         , Username__c
-                        , Last_Login__c
                 FROM AppUser__x
                 WHERE User_Id__c IN :activeUserIds
                 ORDER BY Last_Login__c DESC
@@ -47,6 +46,7 @@ public inherited sharing class AdminService extends CalloutExecutor {
     private class Indicator {
         public Integer id;
         public Boolean active;
+        public String datestamp;
 
         public Indicator() {
         }
