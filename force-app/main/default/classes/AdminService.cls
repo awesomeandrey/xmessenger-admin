@@ -43,6 +43,7 @@ public inherited sharing class AdminService extends CalloutExecutor {
         return super.serializeBody(payload);
     }
 
+    @TestVisible
     private class Indicator {
         public Integer id;
         public Boolean active;

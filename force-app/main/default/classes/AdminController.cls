@@ -4,7 +4,6 @@ public without sharing class AdminController {
         try {
             return AdminService.getInstance().getUsersOnline();
         } catch (Exception ex) {
-            System.debug('\n\n ex => ' + ex + '\n');
             throw new AuraHandledException(ex.getMessage());
         }
     }
