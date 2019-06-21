@@ -1,23 +1,14 @@
 public class RelatedLinksController {
     @AuraEnabled(Cacheable=true)
     public static List<Link__mdt> fetchLinks() {
-        return [
-                SELECT Label
-                        , DeveloperName
-                        , Icon__c
-                        , URL__c
-                        , About__c
-                FROM Link__mdt
-        ];
+        MetadataHolder metadataHolder = MetadataHolder.getInstance();
+        return (List<Link__mdt>) metadataHolder.getAll(Link__mdt.getSObjectType());
     }
 
     @AuraEnabled(Cacheable=true)
     public static String getApiServerUrl() {
-        for (Link__mdt linkItem : fetchLinks()) {
-            if (linkItem.DeveloperName.equals('API_server')) {
-                return linkItem.URL__c;
-            }
-        }
-        return null;
+        MetadataHolder metadataHolder = MetadataHolder.getInstance();
+        Link__mdt linkItem = (Link__mdt) metadataHolder.get(Link__mdt.getSObjectType(), 'API_server');
+        return linkItem == null ? null : linkItem.URL__c;
     }
 }

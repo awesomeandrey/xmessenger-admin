@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="App User Indicators">
+        <lightning-button label="Refresh" slot="actions" onclick={handleRefreshIndicators}></lightning-button>
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading" size="small" variant="brand"></lightning-spinner>
+        </template>
+        <lightning-layout multiple-rows class=slds-m-horizontal--small>
+            <template for:each={appUsers} for:item="appUser">
+                <lightning-layout-item size="6" class="slds-p-around_xx-small" key={appUser.Id}>
+                    <c-au-indicator app-user={appUser}></c-au-indicator>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+        <p slot="footer">
+            <template if:true={appUsers.length}>
+                {appUsers.length} users online
+            </template>
+            <template if:false={appUsers.length}>
+                No users online :(
+            </template>
+        </p>
+    </lightning-card>
+</template>

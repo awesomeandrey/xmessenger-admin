@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Application User</label>
+    <protected>false</protected>
+    <values>
+        <field>Details__c</field>
+        <value xsi:type="xsd:string">{
+   id: &quot;User_Id__c&quot;,
+   name: &quot;Name__c&quot;,
+   username: &quot;Username__c&quot;,
+   active: &quot;Active__c&quot;
+}</value>
+    </values>
+</CustomMetadata>

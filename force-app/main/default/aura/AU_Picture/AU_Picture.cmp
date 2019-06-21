@@ -8,16 +8,16 @@
                       aura:id="recordLoader"
                       targetFields="{!v._appUser}"
                       layoutType="COMPACT"
-                      fields="ExternalId,Fullname__c"/>
+                      fields="ExternalId,Name__c"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler event="force:refreshView" action="{!c.doInit}"/>
     <aura:handler event="lightning:tabRefreshed" action="{!c.doInit}"/>
     <lightning:card variant="base" title="Picture" iconName="standard:avatar">
         <span class="slds-avatar slds-avatar_circle slds-avatar_large slds-align_absolute-center">
-            <img alt="{!v._appUser.Fullname__c}" title="{!v._appUser.Fullname__c}" src="{!v._pictureUrl}"/>
+            <img alt="{!v._appUser.Name__c}" title="{!v._appUser.Name__c}" src="{!v._pictureUrl}"/>
         </span>
         <aura:set attribute="footer">
-            <span class="slds-text-heading_small">{!v._appUser.Fullname__c}</span>
+            <span class="slds-text-heading_small">{!v._appUser.Name__c}</span>
         </aura:set>
     </lightning:card>
 </aura:component>

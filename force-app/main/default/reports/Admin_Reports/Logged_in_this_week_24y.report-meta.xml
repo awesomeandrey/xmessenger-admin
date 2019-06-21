@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>AppUser__x.Fullname__c</field>
+        <field>AppUser__x.Name__c</field>
     </columns>
     <columns>
         <field>AppUser__x.Username__c</field>

@@ -35,6 +35,9 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentName>auIndicators</componentName>
+        </componentInstances>
+        <componentInstances>
             <componentName>home:recentRecordContainer</componentName>
         </componentInstances>
         <name>sidebar</name>

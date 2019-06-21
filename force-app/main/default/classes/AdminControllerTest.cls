@@ -1,24 +1,23 @@
 @IsTest
 private class AdminControllerTest {
-    testMethod static void deactivateUser() {
-        AppUser__x appUser = composeAppUser();
+    testMethod static void getUsersOnline() {
         Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_OK));
-        AdminController.deactivateUser(appUser);
+        AdminController.getUsersOnline();
         Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_BAD_REQUEST));
         try {
-            AdminController.deactivateUser(appUser);
+            AdminController.getUsersOnline();
         } catch (Exception ex) {
             System.assert(true);
         }
     }
 
-    testMethod static void reactivateUser() {
+    testMethod static void updateUserInfo() {
         AppUser__x appUser = composeAppUser();
         Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_OK));
-        AdminController.reactivateUser(appUser);
+        AdminController.updateUserInfo(appUser);
         Test.setMock(HttpCalloutMock.class, new TestRequest(CalloutConstants.SC_BAD_REQUEST));
         try {
-            AdminController.reactivateUser(appUser);
+            AdminController.updateUserInfo(appUser);
         } catch (Exception ex) {
             System.assert(true);
         }
@@ -41,7 +40,7 @@ private class AdminControllerTest {
         AppUser__x appUser = new AppUser__x();
         appUser.ExternalId = userId;
         appUser.User_Id__c = Integer.valueOf(userId);
-        appUser.Fullname__c = 'Test App User';
+        appUser.Name__c = 'Test App User';
         appUser.Username__c = 'test';
         return appUser;
     }
