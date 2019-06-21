@@ -2,7 +2,7 @@ public inherited sharing class AdminService extends CalloutExecutor {
     private PropertyMapper mapper;
 
     private AdminService() {
-        this.mapper = AppUserMapper.getInstance();
+        this.mapper = new AppUserMapper();
     }
 
     public static AdminService getInstance() {
