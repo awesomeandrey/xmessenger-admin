@@ -23,12 +23,13 @@ before_install:
     - --jwtkeyfile assets/server.key
     - --username $USERNAME
     - --setdefaultdevhubusername -a HubOrg
+  # Setting ignored metadata;
+  - touch .forceignore
+  - echo "force-app/main/default/dataSources" >> .forceignore
+  - echo "force-app/main/default/namedCredentials" >> .forceignore
 
 deploy:
-  script:
-    - touch .forceignore
-    - echo "force-app/main/default/dataSources" >> .forceignore
-    - echo "force-app/main/default/namedCredentials" >> .forceignore
-    - bash scripts/deploy.sh -u HubOrg
+  provider: script
+  script: bash scripts/deploy.sh -u HubOrg
   on:
     branch: master
