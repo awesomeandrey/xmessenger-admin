@@ -26,4 +26,13 @@ public without sharing class AdminController {
             throw new AuraHandledException(ex.getMessage());
         }
     }
+
+    @AuraEnabled
+    public static void resetUserPassword(AppUser__x appUser) {
+        try {
+            AdminService.getInstance().resetUserPassword(appUser);
+        } catch (Exception ex) {
+            throw new AuraHandledException(ex.getMessage());
+        }
+    }
 }

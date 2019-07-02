@@ -19,6 +19,21 @@ public inherited sharing class AdminService extends CalloutExecutor {
         return true;
     }
 
+    public Boolean resetUserPassword(AppUser__x appUser) {
+        // todo;
+        HttpResponse response = super.sendRequest(CalloutConstants.ENDPOINT + '/resetUser', 'PUT', appUser);
+        Map<String, Object> payload = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+        String newRawPassword = (String) payload.get('newPassword');
+        System.debug('\n\n newRawPassword => ' + newRawPassword + '\n');
+
+        /*
+         *  private String username;
+            private String password;
+            private String newPassword;
+         */
+        return true;
+    }
+
     public List<AppUser__x> getUsersOnline() {
         HttpResponse response = super.sendRequest(CalloutConstants.ENDPOINT + '/indicators');
         List<Indicator> indicators = (List<Indicator>) JSON.deserialize(response.getBody(), List<Indicator>.class);
