@@ -24,12 +24,11 @@ before_install:
     - --username $USERNAME
     - --setdefaultdevhubusername -a HubOrg
 
-script:
-  - touch .forceignore
-  - echo "force-app/main/default/dataSources" >> .forceignore
-  - echo "force-app/main/default/namedCredentials" >> .forceignore
-  - bash scripts/deploy.sh -u HubOrg
-
 deploy:
+  script:
+    - touch .forceignore
+    - echo "force-app/main/default/dataSources" >> .forceignore
+    - echo "force-app/main/default/namedCredentials" >> .forceignore
+    - bash scripts/deploy.sh -u HubOrg
   on:
     branch: master
