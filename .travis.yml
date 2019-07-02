@@ -6,6 +6,7 @@ env:
   - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
 
 before_install:
+  - gem install bundler # Resolving environment issue;
   - openssl aes-256-cbc -K $encrypted_24ec2496f8a4_key -iv $encrypted_24ec2496f8a4_iv
     -in assets/server.key.enc -out assets/server.key -d
   - export SFDX_AUTOUPDATE_DISABLE=false
