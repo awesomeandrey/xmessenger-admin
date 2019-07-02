@@ -29,3 +29,7 @@ script:
   - echo "force-app/main/default/dataSources" >> .forceignore
   - echo "force-app/main/default/namedCredentials" >> .forceignore
   - bash scripts/deploy.sh -u HubOrg
+
+deploy:
+  on:
+    branch: master
