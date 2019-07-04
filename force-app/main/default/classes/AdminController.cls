@@ -32,6 +32,7 @@ public without sharing class AdminController {
         try {
             AdminService.getInstance().resetUserPassword(appUser);
         } catch (Exception ex) {
+            System.debug('\n\n ex.getStackTraceString() => ' + ex.getStackTraceString() + '\n');
             throw new AuraHandledException(ex.getMessage());
         }
     }

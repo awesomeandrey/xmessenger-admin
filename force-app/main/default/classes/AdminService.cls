@@ -23,8 +23,11 @@ public inherited sharing class AdminService extends CalloutExecutor {
         HttpResponse response = super.sendRequest(CalloutConstants.ENDPOINT + '/resetUser', 'PUT', appUser);
         Map<String, Object> payload = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
         String newRawPassword = (String) payload.get('newPassword');
-        System.debug('\n\n newRawPassword => ' + newRawPassword + '\n');
-        // todo - implement email notification feature;
+        EmailNotificator.notify('Reset_Password', new Map<String, String>{
+                EmailNotificator.EMAIL_PARAM_NAME => appUser.Email__c,
+                'name' => appUser.Name__c,
+                'newPassword' => newRawPassword
+        });
         return true;
     }
 

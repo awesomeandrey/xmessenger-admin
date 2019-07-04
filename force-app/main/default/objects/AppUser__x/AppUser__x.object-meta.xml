@@ -44,6 +44,7 @@
     <enableSearch>true</enableSearch>
     <externalDataSource>Heroku_Postgres</externalDataSource>
     <externalName>public$xm_user</externalName>
+    <externalRepository>User_Id</externalRepository>
     <label>Application User</label>
     <pluralLabel>Application Users</pluralLabel>
     <searchLayouts/>

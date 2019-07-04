@@ -24,7 +24,16 @@
     resetAppUserPassword: function (component, event, helper) {
         const workspaceApi = component.find("workspace"), appUser = component.get("v.appUser");
         helper.openConsentBox(workspaceApi, _ => {
-            helper.processAction(component, "c.resetUserPassword", {appUser});
+            helper.processAction(component, "c.resetUserPassword", {appUser})
+                .then($A.getCallback(_ => {
+                    const error = component.get("v.error");
+                    if (!$A.util.isEmpty(error)) {
+                        debugger;
+
+                    } else {
+                        // notification;
+                    }
+                }));
         }, {body: `Do you want to reset password for ${appUser.Name__c}?`});
     }
 });
