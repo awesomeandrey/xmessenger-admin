@@ -9,7 +9,7 @@
     <aura:attribute name="appUser" type="AppUser__x" description="Target record used by LDS." default="{}"/>
 
     <force:recordData recordId="{!v.recordId}" layoutType="COMPACT" targetFields="{!v.appUser}"
-                      fields="ExternalId,User_Id__c,Username__c,Active__c,Email__c"/>
+                      fields="ExternalId,User_Id__c,Username__c,Active__c,Email__c,Logged_Externally__c"/>
 
     <div class="slds-box slds-box_x-small slds-theme_shade slds-theme_alert-texture slds-clearfix">
         <lightning:layout multipleRows="true">
@@ -18,7 +18,7 @@
                     <aura:if isTrue="{!v.appUser.Active__c}">
                         <lightning:button variant="neutral" label="Deactivate User"
                                           onclick="{!c.deactivateAppUser}" disabled="{!v.loading}"/>
-                        <aura:if isTrue="{!not(empty(v.appUser.Email__c))}">
+                        <aura:if isTrue="{!and(not(empty(v.appUser.Email__c)), not(v.appUser.Logged_Externally__c))}">
                             <lightning:button variant="brand" label="Reset Password"
                                               onclick="{!c.resetAppUserPassword}" disabled="{!or(v.loading)}"/>
                         </aura:if>
