@@ -2,6 +2,8 @@ sudo: true
 os: linux
 cache: false
 
+if: branch = master
+
 env:
   - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
 
@@ -23,14 +25,9 @@ before_install:
     - --jwtkeyfile assets/server.key
     - --username $USERNAME
     - --setdefaultdevhubusername -a HubOrg
-  # Setting ignored metadata;
+
+script:
   - touch .forceignore
   - echo "force-app/main/default/dataSources" >> .forceignore
   - echo "force-app/main/default/namedCredentials" >> .forceignore
-  - ls
-
-deploy:
-  provider: script
-  script: bash scripts/deploy.sh -u HubOrg
-  on:
-    branch: master
+  - bash scripts/deploy.sh -u HubOrg
