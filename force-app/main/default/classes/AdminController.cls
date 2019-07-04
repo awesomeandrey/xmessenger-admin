@@ -4,7 +4,7 @@ public without sharing class AdminController {
         try {
             return AdminService.getInstance().getUsersOnline();
         } catch (Exception ex) {
-            throw new AuraHandledException(ex.getMessage());
+            throw new AuraHandledException(ex.getStackTraceString());
         }
     }
 
@@ -14,7 +14,7 @@ public without sharing class AdminController {
             AppUser__x userToUpdate = appUser.clone(false, true);
             AdminService.getInstance().updateUser(userToUpdate);
         } catch (Exception ex) {
-            throw new AuraHandledException(ex.getMessage());
+            throw new AuraHandledException(ex.getStackTraceString());
         }
     }
 
@@ -23,7 +23,7 @@ public without sharing class AdminController {
         try {
             AdminService.getInstance().deleteUser(appUser);
         } catch (Exception ex) {
-            throw new AuraHandledException(ex.getMessage());
+            throw new AuraHandledException(ex.getStackTraceString());
         }
     }
 
@@ -32,8 +32,7 @@ public without sharing class AdminController {
         try {
             AdminService.getInstance().resetUserPassword(appUser);
         } catch (Exception ex) {
-            System.debug('\n\n ex.getStackTraceString() => ' + ex.getStackTraceString() + '\n');
-            throw new AuraHandledException(ex.getMessage());
+            throw new AuraHandledException(ex.getStackTraceString());
         }
     }
 }

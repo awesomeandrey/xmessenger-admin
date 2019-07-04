@@ -1,21 +1,20 @@
 public without sharing class EmailNotificator {
     public static final String EMAIL_PARAM_NAME = 'emailAddress';
+    public static final String SUBJECT_PARAM_NAME = 'subject';
 
-    public static void notify(String templateApiName) {
-    }
+    private static final String SENDER_DISPLAY_NAME = 'xMessenger Support Team';
 
     public static void notify(String templateApiName, Map<String, String> parametersMap) {
-        if (!parametersMap.containsKey(EMAIL_PARAM_NAME)) {
-            throw new NoRecipientEmailException('No email recipient address provided.');
-        }
-        String recipientEmailAddress = parametersMap.get(EMAIL_PARAM_NAME);
         EmailTemplate template = getEmailTemplateByApiName(templateApiName);
-        sendEmail(template, recipientEmailAddress, parametersMap);
+        Messaging.SingleEmailMessage emailMessage = composeEmailMessage(template, parametersMap);
+        Messaging.sendEmail(new Messaging.SingleEmailMessage[]{
+                emailMessage
+        });
     }
 
     private static EmailTemplate getEmailTemplateByApiName(String templateApiName) {
         List<EmailTemplate> templatesFound = [
-                SELECT Id, Body
+                SELECT Id, Body, HtmlValue
                 FROM EmailTemplate
                 WHERE DeveloperName = :templateApiName
                 LIMIT 1
@@ -28,25 +27,27 @@ public without sharing class EmailNotificator {
         return templatesFound[0];
     }
 
-    private static void sendEmail(EmailTemplate template, String recipientEmail, Map<String, String> parametersMap) {
+    private static Messaging.SingleEmailMessage composeEmailMessage(EmailTemplate template, Map<String, String> parametersMap) {
+        if (!parametersMap.containsKey(EMAIL_PARAM_NAME)) {
+            throw new NoRecipientEmailException('No email recipient address provided.');
+        }
         Messaging.SingleEmailMessage emailMessage = new Messaging.SingleEmailMessage();
         emailMessage.setTemplateId(template.Id);
+        emailMessage.setSaveAsActivity(true);
+        emailMessage.setSubject(parametersMap.containsKey(SUBJECT_PARAM_NAME) ? parametersMap.get(SUBJECT_PARAM_NAME) : 'Support');
+        emailMessage.setSenderDisplayName(SENDER_DISPLAY_NAME);
         emailMessage.setToAddresses(new List<String>{
-                recipientEmail
+                parametersMap.get(EMAIL_PARAM_NAME)
         });
-        String plainText = fillTemplateValues(template, parametersMap);
-        emailMessage.setPlainTextBody(plainText);
-//        Messaging.sendEmail(new Messaging.SingleEmailMessage[]{
-//                emailMessage
-//        });
+        emailMessage.setPlainTextBody(fillTemplateValues(template.Body, parametersMap));
+        return emailMessage;
     }
 
-    private static String fillTemplateValues(EmailTemplate template, Map<String, String> parametersMap) {
-        String result = template.Body;
+    private static String fillTemplateValues(String body, Map<String, String> parametersMap) {
         for (String paramKey : parametersMap.keySet()) {
-            result = result.replace('{!' + paramKey + '}', parametersMap.get(paramKey));
+            body = body.replace('{!' + paramKey + '}', parametersMap.get(paramKey));
         }
-        return result;
+        return body;
     }
 
     class TemplateNotFoundException extends Exception {

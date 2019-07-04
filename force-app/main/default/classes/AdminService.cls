@@ -24,6 +24,7 @@ public inherited sharing class AdminService extends CalloutExecutor {
         Map<String, Object> payload = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
         String newRawPassword = (String) payload.get('newPassword');
         EmailNotificator.notify('Reset_Password', new Map<String, String>{
+                EmailNotificator.SUBJECT_PARAM_NAME => 'Password Reset',
                 EmailNotificator.EMAIL_PARAM_NAME => appUser.Email__c,
                 'name' => appUser.Name__c,
                 'newPassword' => newRawPassword
