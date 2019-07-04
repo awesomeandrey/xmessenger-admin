@@ -28,10 +28,10 @@
                 .then($A.getCallback(_ => {
                     const error = component.get("v.error");
                     if ($A.util.isEmpty(error)) {
-                        const notificationLib = component.find("notificationLib");
+                        const notificationLib = component.find("notificationLib"), emailAddress = appUser["Email__c"];
                         notificationLib.showToast({
                             title: "Info", message: "The email was sent to {0}.",
-                            messageData: [{url: "mailto:", label: appUser["Email__c"]}]
+                            messageData: [{url: "mailto:" + emailAddress, label: emailAddress}]
                         });
                     }
                 }));

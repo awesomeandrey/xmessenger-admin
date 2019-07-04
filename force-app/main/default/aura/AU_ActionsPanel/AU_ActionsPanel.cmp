@@ -18,8 +18,10 @@
                     <aura:if isTrue="{!v.appUser.Active__c}">
                         <lightning:button variant="neutral" label="Deactivate User"
                                           onclick="{!c.deactivateAppUser}" disabled="{!v.loading}"/>
-                        <lightning:button variant="brand" label="Reset Password"
-                                          onclick="{!c.resetAppUserPassword}" disabled="{!or(v.loading)}"/>
+                        <aura:if isTrue="{!not(empty(v.appUser.Email__c))}">
+                            <lightning:button variant="brand" label="Reset Password"
+                                              onclick="{!c.resetAppUserPassword}" disabled="{!or(v.loading)}"/>
+                        </aura:if>
                     </aura:if>
                     <aura:if isTrue="{!not(v.appUser.Active__c)}">
                         <lightning:button variant="brand" label="Activate User"
