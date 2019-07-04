@@ -3,8 +3,8 @@ public without sharing virtual class CalloutExecutor {
         HttpResponse response = new Http().send(req);
         if (CalloutConstants.SC_FAILURE.contains(response.getStatusCode())) {
             throw new CalloutException(
-                    String.format('Callout failure: {0} ({1} {2})', new List<Object>{
-                            response.getBody(), response.getStatus(), response.getStatusCode()
+                    String.format('Callout failure: {0} ({1}).\n\n{2}', new List<Object>{
+                            response.getStatus(), response.getStatusCode(), response.getBody()
                     }));
         }
         return response;

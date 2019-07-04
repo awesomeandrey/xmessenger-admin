@@ -27,11 +27,12 @@
             helper.processAction(component, "c.resetUserPassword", {appUser})
                 .then($A.getCallback(_ => {
                     const error = component.get("v.error");
-                    if (!$A.util.isEmpty(error)) {
-                        debugger;
-
-                    } else {
-                        // notification;
+                    if ($A.util.isEmpty(error)) {
+                        const notificationLib = component.find("notificationLib");
+                        notificationLib.showToast({
+                            title: "Info", message: "The email was sent to {0}.",
+                            messageData: [{url: "mailto:", label: appUser["Email__c"]}]
+                        });
                     }
                 }));
         }, {body: `Do you want to reset password for ${appUser.Name__c}?`});
