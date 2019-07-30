@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>false</doesSendEmailToMembers>
-    <name>Chat Support</name>
-    <queueMembers>
-        <users>
-            <user>test-o7t1zqtrtjii@example.com</user>
-        </users>
-    </queueMembers>
-    <queueRoutingConfig>Chat_Routing</queueRoutingConfig>
+    <name>Chat Support Overflow</name>
     <queueSobject>
         <sobjectType>LiveChatTranscript</sobjectType>
     </queueSobject>
