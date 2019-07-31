@@ -3,11 +3,6 @@
     <connectionTimeoutDuration>0</connectionTimeoutDuration>
     <connectionWarningDuration>0</connectionWarningDuration>
     <displayQueuePosition>false</displayQueuePosition>
-    <domainWhiteList>
-        <domain>localhost</domain>
-        <domain>visualforce.com</domain>
-        <domain>herokuapp.com</domain>
-    </domainWhiteList>
     <enablePrechatApi>true</enablePrechatApi>
     <enableTranscriptSave>true</enableTranscriptSave>
     <label>Chat Deployment</label>
