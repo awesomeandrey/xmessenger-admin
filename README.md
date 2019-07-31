@@ -21,13 +21,17 @@ For the versions available, see the [tags on this repository](https://github.com
 
 ### Features
 
-## Live Chat
+<hr/>
+
+##### Live Chat
 
 Considerations:
 
-* Scratch orgs don't support it completely;
-* Snap-ins cannot be deployed;
-* LC requires SF site registered/activated; 
+* Live Chat (LC) metadata components cannot be deployed to scratch orgs;
+* `Embedded Service Deployments (ESD)` or `Snap-Ins` cannot be deployed;
+* LC requires Salesforce `Site` registered/activated for hosting `ESD` scripts;
+* Individual users should be added to proper configurations (`Queue`, `Chat Configuration`);
+* `Service Presence Status` values should be added to respective permission set <u>manually</u>. 
 
 ### Authors
 
