@@ -2,16 +2,17 @@
   "orgName": "xMessenger Corp.",
   "edition": "Developer",
   "features": [
-    "Communities",
     "LiveAgent"
   ],
   "settings": {
     "orgPreferenceSettings": {
-      "s1DesktopEnabled": true,
-      "networksEnabled": true
+      "s1DesktopEnabled": true
     },
     "omniChannelSettings": {
       "enableOmniChannel": true
+    },
+    "liveAgentSettings": {
+      "enableLiveAgent": true
     }
   }
 }
