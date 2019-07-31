@@ -19,6 +19,16 @@ administration and data management activities.
 
 For the versions available, see the [tags on this repository](https://github.com/awesomeandrey/xmessenger-admin/tags).
 
+### Features
+
+## Live Chat
+
+Considerations:
+
+* Scratch orgs don't support it completely;
+* Snap-ins cannot be deployed;
+* LC requires SF site registered/activated; 
+
 ### Authors
 
 * **Andrii Melnichuk** - *Initial work* - [awesomeandrey](https://github.com/awesomeandrey)
