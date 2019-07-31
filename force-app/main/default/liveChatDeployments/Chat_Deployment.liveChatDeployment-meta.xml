@@ -6,5 +6,5 @@
     <enablePrechatApi>true</enablePrechatApi>
     <enableTranscriptSave>true</enableTranscriptSave>
     <label>Chat Deployment</label>
-    <windowTitle>Chat Deployment Title</windowTitle>
+    <windowTitle>Chat Deployment</windowTitle>
 </LiveChatDeployment>

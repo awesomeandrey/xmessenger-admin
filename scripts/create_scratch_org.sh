@@ -10,11 +10,7 @@ while getopts ":u:" opt; do
         export TARGET_USERNAME=andrii.melnichuk@xmessenger.com
         #Create scratch org;
         sfdx force:org:create -f config/project-scratch-def.json -a $ORG_NAME --targetdevhubusername $TARGET_USERNAME &&
-        #Push source to scratch org (cleaning up .forceignore file);
-        echo "**liveChat" > .forceignore
-        echo "**permissionsets" >> .forceignore
-        sfdx force:source:push -u $ORG_NAME -f &&
-        sed -i "/permissionsets/d" .forceignore &&
+        #Push source to scratch org;
         sfdx force:source:push -u $ORG_NAME -f &&
         #Assign permission sets;
         sfdx force:user:permset:assign --permsetname Heroku_Integrator --targetusername $TARGET_USERNAME -u $ORG_NAME &&
