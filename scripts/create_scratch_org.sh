@@ -10,7 +10,8 @@ while getopts ":u:" opt; do
         export TARGET_USERNAME=andrii.melnichuk@xmessenger.com
         #Create scratch org;
         sfdx force:org:create -f config/project-scratch-def.json -a $ORG_NAME --targetdevhubusername $TARGET_USERNAME &&
-        #Push source to scratch org;
+        #Push source to scratch org (clean '.forceignore' file);
+        > .forceignore &&
         sfdx force:source:push -u $ORG_NAME -f &&
         #Assign permission sets;
         sfdx force:user:permset:assign --permsetname Heroku_Integrator --targetusername $TARGET_USERNAME -u $ORG_NAME &&
