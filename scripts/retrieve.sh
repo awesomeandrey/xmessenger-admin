@@ -6,7 +6,10 @@ while getopts ":u:" opt; do
         #Unmanaged package name (static value);
         export STATIC_PACKAGE_NAME=sfdxTransfer
         export tmp_dir=package
-        sfdx force:mdapi:retrieve -s -r $tmp_dir/ -u $USERNAME -p $STATIC_PACKAGE_NAME &&
+        sfdx force:mdapi:retrieve \
+            -s -r $tmp_dir/ \
+            -u $USERNAME \
+            -p $STATIC_PACKAGE_NAME &&
         unzip $tmp_dir/unpackaged.zip -d $tmp_dir/ &&
         sfdx force:mdapi:convert -r $tmp_dir/ &&
         rm -rf $tmp_dir

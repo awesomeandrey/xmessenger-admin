@@ -7,17 +7,22 @@ while getopts ":u:" opt; do
     u)
         #Define context constants;
         export ORG_NAME=$OPTARG
-        export TARGET_USERNAME=andrii.melnichuk@xmessenger.com
+        export TARGET_DEV_HUB_USERNAME=andrii.melnichuk@xmessenger.com
         #Create scratch org;
-        sfdx force:org:create -f config/project-scratch-def.json -a $ORG_NAME --targetdevhubusername $TARGET_USERNAME &&
-        #Push source to scratch org (clean '.forceignore' file);
+        sfdx force:org:create \
+            -f config/project-scratch-def.json \
+            -a ${ORG_NAME} \
+            -v $TARGET_DEV_HUB_USERNAME &&
+        #Push source to scratch org (cleaning '.forceignore' file);
         > .forceignore &&
-        sfdx force:source:push -u $ORG_NAME -f &&
-        #Assign permission sets;
-        sfdx force:user:permset:assign --permsetname Heroku_Integrator --targetusername $TARGET_USERNAME -u $ORG_NAME &&
-        sfdx force:user:permset:assign --permsetname Chat_Support --targetusername $TARGET_USERNAME -u $ORG_NAME &&
+        sfdx force:source:push -u ${ORG_NAME} -f &&
+        #Create scratch org user;
+        sfdx force:user:create \
+            -u ${ORG_NAME} \
+            -f config/dev-user-def.json \
+            Username=${TARGET_DEV_HUB_USERNAME} &&
         #Open scratch org;
-        sfdx force:org:open -u $ORG_NAME
+        sfdx force:org:open -u ${ORG_NAME}
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
