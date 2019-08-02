@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QueueRoutingConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <capacityPercentage>50.0</capacityPercentage>
+    <isAttributeBased>false</isAttributeBased>
+    <label>Chat Routing</label>
+    <queueOverflowAssignee>Chat_Support_Overflow</queueOverflowAssignee>
+    <routingModel>MOST_AVAILABLE</routingModel>
+    <routingPriority>1</routingPriority>
+</QueueRoutingConfig>

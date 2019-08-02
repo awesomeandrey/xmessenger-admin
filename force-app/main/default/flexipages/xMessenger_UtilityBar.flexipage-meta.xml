@@ -34,6 +34,9 @@
             </componentInstanceProperties>
             <componentName>RelatedLinks</componentName>
         </componentInstances>
+        <componentInstances>
+            <componentName>runtime_service_omnichannel:omniWidget</componentName>
+        </componentInstances>
         <name>utilityItems</name>
         <type>Region</type>
     </flexiPageRegions>

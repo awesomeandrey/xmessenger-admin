@@ -24,17 +24,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>AppUser__x.Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>AppUser__x.Last_Login__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>AppUser__x.Logged_Externally__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>AppUser__x.Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -85,11 +85,19 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>CustomizeApplication</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>EditMyReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ExportReport</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageCustomPermissions</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

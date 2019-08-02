@@ -19,6 +19,20 @@ administration and data management activities.
 
 For the versions available, see the [tags on this repository](https://github.com/awesomeandrey/xmessenger-admin/tags).
 
+### Features
+
+<hr/>
+
+##### Live Chat
+
+Considerations:
+
+* Live Chat (LC) metadata components cannot be deployed to scratch orgs;
+* `Embedded Service Deployments (ESD)` or `Snap-Ins` cannot be deployed;
+* LC requires Salesforce `Site` registered/activated for hosting `ESD` scripts;
+* Individual users should be added to proper configurations (`Queue`, `Chat Configuration`);
+* `Service Presence Status` values should be added to respective permission set <u>manually</u>. 
+
 ### Authors
 
 * **Andrii Melnichuk** - *Initial work* - [awesomeandrey](https://github.com/awesomeandrey)

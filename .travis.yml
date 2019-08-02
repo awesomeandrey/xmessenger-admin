@@ -2,11 +2,12 @@ sudo: true
 os: linux
 cache: false
 
+#Buils are allowed from "master" branch ONLY;
 if: branch = master
 
+#Configure SFDX environment;
 env:
   - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
-
 before_install:
   - openssl aes-256-cbc -K $encrypted_24ec2496f8a4_key -iv $encrypted_24ec2496f8a4_iv
     -in assets/server.key.enc -out assets/server.key -d
@@ -26,8 +27,9 @@ before_install:
     - --username $USERNAME
     - --setdefaultdevhubusername -a HubOrg
 
+#Deploy sources with SFDX CLI;
 script:
   - touch .forceignore
-  - echo "force-app/main/default/dataSources" >> .forceignore
-  - echo "force-app/main/default/namedCredentials" >> .forceignore
+  - echo "**dataSources" >> .forceignore
+  - echo "**namedCredentials" >> .forceignore
   - bash scripts/deploy.sh -u HubOrg
