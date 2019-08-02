@@ -23,15 +23,15 @@ For the versions available, see the [tags on this repository](https://github.com
 
 <hr/>
 
-##### Live Chat
+#### Live Chat
 
 Considerations:
 
-* Live Chat (LC) metadata components cannot be deployed to scratch orgs;
-* `Embedded Service Deployments (ESD)` or `Snap-Ins` cannot be deployed;
+* `Live Chat Button` is a non-deployable element in `Live Chat` (LC) feature setup;
+* `Embedded Service Deployments (ESD)` (formerly `Snap-Ins`) cannot be deployed to scratch orgs;
 * LC requires Salesforce `Site` registered/activated for hosting `ESD` scripts;
-* Individual users should be added to proper configurations (`Queue`, `Chat Configuration`);
-* `Service Presence Status` values should be added to respective permission set <u>manually</u>. 
+* Individual users should be added to proper configurations manually (`Queue`, `Chat Configuration`);
+* `Service Presence Status` values should be added to respective permission set(s) <u>manually</u>. 
 
 ### Authors
 
