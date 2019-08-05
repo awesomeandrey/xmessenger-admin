@@ -22,7 +22,6 @@
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
-<!--    <siteAdmin>test-2evuospeebry@example.com</siteAdmin>-->
     <siteTemplate>SiteTemplate</siteTemplate>
     <siteType>Visualforce</siteType>
     <subdomain>xmessenger-developer-edition</subdomain>
