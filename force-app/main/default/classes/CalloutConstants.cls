@@ -10,7 +10,8 @@ public class CalloutConstants {
             , 500 // Server error;
     };
 
-    public final static String ENDPOINT = 'callout:API_Server';
+    public final static String API_SERVER_ENDPOINT = 'callout:API_Server';
+    public final static String ADMIN_API_ENDPOINT = API_SERVER_ENDPOINT + '/admin-api';
     public final static String DEFAULT_CONTENT_TYPE = 'application/json;charset=utf-8';
     public final static Integer DEFAULT_TIMEOUT = 10 * 1000;
 }

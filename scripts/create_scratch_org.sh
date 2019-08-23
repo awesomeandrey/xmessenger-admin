@@ -37,6 +37,7 @@ sfdx force:org:create \
 
 #Push source to scratch org (cleaning '.forceignore' file);
 > .forceignore &&
+echo "**sites" >> .forceignore &&
 sfdx force:source:push -u "$scratchOrgAlias" -f &&
 
 #Create scratch org user;

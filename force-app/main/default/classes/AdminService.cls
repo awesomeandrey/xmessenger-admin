@@ -10,17 +10,17 @@ public inherited sharing class AdminService extends CalloutExecutor {
     }
 
     public Boolean updateUser(AppUser__x appUser) {
-        super.sendRequest(CalloutConstants.ENDPOINT + '/updateUser', 'PUT', appUser);
+        super.sendRequest(CalloutConstants.ADMIN_API_ENDPOINT + '/updateUser', 'PUT', appUser);
         return true;
     }
 
     public Boolean deleteUser(AppUser__x appUser) {
-        super.sendRequest(CalloutConstants.ENDPOINT + '/deleteUser', 'DELETE', appUser);
+        super.sendRequest(CalloutConstants.ADMIN_API_ENDPOINT + '/deleteUser', 'DELETE', appUser);
         return true;
     }
 
     public Boolean resetUserPassword(AppUser__x appUser) {
-        HttpResponse response = super.sendRequest(CalloutConstants.ENDPOINT + '/resetUser', 'PUT', appUser);
+        HttpResponse response = super.sendRequest(CalloutConstants.ADMIN_API_ENDPOINT + '/resetUser', 'PUT', appUser);
         Map<String, Object> payload = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
         String newRawPassword = (String) payload.get('newPassword');
         EmailNotificator.notify('Reset_Password', new Map<String, String>{
@@ -33,7 +33,7 @@ public inherited sharing class AdminService extends CalloutExecutor {
     }
 
     public List<AppUser__x> getUsersOnline() {
-        HttpResponse response = super.sendRequest(CalloutConstants.ENDPOINT + '/indicators');
+        HttpResponse response = super.sendRequest(CalloutConstants.ADMIN_API_ENDPOINT + '/indicators');
         List<Indicator> indicators = (List<Indicator>) JSON.deserialize(response.getBody(), List<Indicator>.class);
         Set<Integer> activeUserIds = new Set<Integer>();
         for (Indicator indicatorItem : indicators) {
