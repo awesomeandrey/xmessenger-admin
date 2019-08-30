@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>awesomeandrew@ukr.net</contactEmail>
+    <description>UX/UI server in xMessenger application ecosystem</description>
+    <iconUrl>https://xmessenger.herokuapp.com/public/favicon.ico</iconUrl>
+    <infoUrl>https://xmessenger.herokuapp.com/about</infoUrl>
+    <label>xmessenger-ux</label>
+    <logoUrl>https://xmessenger.herokuapp.com/public/favicon.ico</logoUrl>
+    <oauthConfig>
+        <callbackUrl>https://test.salesforce.com/services/oauth2/success</callbackUrl>
+        <scopes>Api</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <startUrl>https://xmessenger.herokuapp.com</startUrl>
+</ConnectedApp>

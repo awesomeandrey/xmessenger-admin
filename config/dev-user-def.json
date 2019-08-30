@@ -2,7 +2,7 @@
   "LastName": "SFDC Dev",
   "Alias": "dev-user",
   "permsets": [
-    "Heroku_Integrator",
+    "xMessenger_Admin",
     "Chat_Support"
   ],
   "generatePassword": true
