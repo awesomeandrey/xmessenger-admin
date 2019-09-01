@@ -32,4 +32,5 @@ script:
   - touch .forceignore
   - echo "**dataSources" >> .forceignore
   - echo "**namedCredentials" >> .forceignore
+  - echo "**connectedApps" >> .forceignore
   - bash scripts/deploy.sh -u HubOrg

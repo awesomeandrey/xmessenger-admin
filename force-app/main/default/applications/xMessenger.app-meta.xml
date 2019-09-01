@@ -8,6 +8,15 @@
         <type>Flexipage</type>
         <pageOrSobjectType>standard-home</pageOrSobjectType>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Application_News_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Application_News__c</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#BF0201</headerColor>
         <logo>logo</logo>
@@ -31,11 +40,15 @@
     <tabs>standard-home</tabs>
     <tabs>standard-report</tabs>
     <tabs>AppUser__x</tabs>
+    <tabs>Application_News__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>xMessenger_UtilityBar</utilityBar>
     <workspaceConfig>
         <mappings>
             <tab>AppUser__x</tab>
+        </mappings>
+        <mappings>
+            <tab>Application_News__c</tab>
         </mappings>
         <mappings>
             <tab>standard-home</tab>
