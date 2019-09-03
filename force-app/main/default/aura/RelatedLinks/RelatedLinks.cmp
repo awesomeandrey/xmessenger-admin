@@ -1,5 +1,5 @@
-<aura:component extends="c:CommonAction" controller="RelatedLinksController"
-                implements="flexipage:availableForAllPageTypes,lightning:utilityItem">
+<aura:component extends="c:CommonAction" controller="RelatedLinksController" access="global"
+                implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes,lightning:utilityItem">
     <aura:attribute name="links" type="Link__mdt[]" default="[]" description="Links list."/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <div class="slds-theme_default slds-p-around--small">

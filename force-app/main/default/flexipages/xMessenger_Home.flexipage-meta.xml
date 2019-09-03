@@ -51,7 +51,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>filterName</name>
-                <value>All</value>
+                <value>All_News</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>hideActionBar</name>

@@ -1,0 +1,8 @@
+<design:component label="App User - Quick Update">
+    <design:supportedFormFactors>
+        <design:supportedFormFactor type="Small"/>
+    </design:supportedFormFactors>
+    <sfdc:objects>
+        <sfdc:object>AppUser__x</sfdc:object>
+    </sfdc:objects>
+</design:component>

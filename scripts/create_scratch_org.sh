@@ -25,9 +25,9 @@ then
    helpFunction
 fi
 
-# Begin script in case all parameters are correct;
-echo Scratch org alias is: "$scratchOrgAlias"
-echo DevHub username is: "$devHubUsername"
+# Execute rest of script in case all parameters are correct;
+echo Scratch org alias: "$scratchOrgAlias"
+echo DevHub username: "$devHubUsername"
 
 #Create scratch org;
 sfdx force:org:create \
@@ -40,10 +40,20 @@ sfdx force:org:create \
 echo "**sites" >> .forceignore &&
 sfdx force:source:push -u "$scratchOrgAlias" -f &&
 
-#Create scratch org user;
+#Configure default scratch org user with required permission(s);
+key_value_array=($(sfdx force:user:display -u "$scratchOrgAlias" | grep "Username"))
+default_username=${key_value_array[1]}
+declare -a permissionSetNames=("xMessenger_Admin" "Chat_Support")
+for i in "${permissionSetNames[@]}"
+do
+   sfdx force:user:permset:assign --permsetname ${i} --targetusername ${default_username}
+done
+
+#Create scratch org test user;
 sfdx force:user:create \
     -u "$scratchOrgAlias" \
     -f config/dev-user-def.json &&
 
 #Open scratch org;
 sfdx force:org:open -u "$scratchOrgAlias"
+echo "You can start coding!"
