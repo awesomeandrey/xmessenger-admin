@@ -37,8 +37,10 @@ sfdx force:org:create \
 
 #Push source to scratch org (cleaning '.forceignore' file);
 > .forceignore &&
-echo "**sites" >> .forceignore &&
-sfdx force:source:push -u "$scratchOrgAlias" -f &&
+echo "force-app/main/default/sites/xMessenger_Support_Chat.site-meta.xml" >> .forceignore &&
+sfdx force:source:push \
+    -u "$scratchOrgAlias" \
+    -f &&
 
 #Configure default scratch org user with required permission(s);
 key_value_array=($(sfdx force:user:display -u "$scratchOrgAlias" | grep "Username"))
